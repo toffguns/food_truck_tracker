@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :time_and_places
+
   root 'landing_page#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
