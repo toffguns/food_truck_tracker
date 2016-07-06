@@ -24,6 +24,7 @@ class TimeAndPlacesController < ApplicationController
   # POST /time_and_places
   # POST /time_and_places.json
   def create
+
     @time_and_place = TimeAndPlace.new(time_and_place_params)
 
     respond_to do |format|
