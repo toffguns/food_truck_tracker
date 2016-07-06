@@ -1,4 +1,6 @@
 class LandingPageController < ApplicationController
+  skip_before_action :authenticate_owner!
+  
   def index
     @time_and_places = TimeAndPlace.all #@apartments may also be found using the set_apartment method provided by scaffolding
       @pindrop = Gmaps4rails.build_markers(@time_and_places) do |time_and_place, marker|

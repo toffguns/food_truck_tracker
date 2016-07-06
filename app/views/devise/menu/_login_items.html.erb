@@ -1,0 +1,9 @@
+<% if owner_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_owner_session_path, :method => :delete) %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_owner_session_path)  %>
+  </li>
+<% end %>

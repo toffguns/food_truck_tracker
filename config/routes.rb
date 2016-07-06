@@ -1,10 +1,42 @@
 Rails.application.routes.draw do
-  resources :trucks
 
+  get 'owner/check_auth'
+
+  devise_for :owners
+  resources :owners
+  resources :trucks
   resources :time_and_places
 
-  root 'landing_page#index'
+  root "landing_page#index"
 
+  #
+  # devise_scope :owner do
+  #    get "/" => "devise/registrations#new"
+  # end
+
+
+  # unauthenticated :owner do
+  #   root 'landing_page#index', as: :unauthenticated_root
+  # end
+
+  # unauthenticated :owner do
+  #   scope "/" do
+  #     root 'landing_page#index', as: :unauthenticated_root
+  #   end
+  # end
+  # unauthenticated do
+  #   devise_scope :owner do
+  #     root to: "landing_page#index", :as => "unauthenticated"
+  #   end
+  # end
+  #
+  #
+  # authenticate :owner do
+  #   scope "/owners" do
+  #     resources :owners, only: [:new, :create, :edit, :update, :destroy]
+  #   end
+  # end
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
