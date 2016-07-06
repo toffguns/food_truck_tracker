@@ -11,6 +11,9 @@ RSpec.feature "LandingPages", type: :feature do
        expect(page).to have_content('Food Trucker')
        expect(page).to have_content('About Food Trucker')
      end
+     Then 'I can view a placeholder for a map' do
+       expect(page).to have_content('Your map')
+     end
    end
  end
 end
