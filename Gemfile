@@ -26,8 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-generators'
 gem 'geocoder'
 gem 'gmaps4rails'
-#device gem
+#devise gem
 gem 'devise'
+gem 'textacular', '~>3.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
