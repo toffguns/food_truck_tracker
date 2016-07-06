@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @time_and_place.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @time_and_place.end_time %>
+</p>
+
+<p>
+  <strong>Street address:</strong>
+  <%= @time_and_place.street_address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @time_and_place.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @time_and_place.state %>
+</p>
+
+<p>
+  <strong>Zip code:</strong>
+  <%= @time_and_place.zip_code %>
+</p>
+
+<%= link_to 'Edit', edit_time_and_place_path(@time_and_place) %> |
+<%= link_to 'Back', time_and_places_path %>
