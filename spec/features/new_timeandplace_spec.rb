@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "TimeAndPlace", type: :feature do
   context 'new TimeAndPlace' do
     Steps 'creating a new TimeAndPlace for a food truck' do
-      Given 'I go to the new TimeAndPlace form' do
+      Given 'I go to the new TimeAndPlace for' do
         visit 'time_and_places/new'
       end
       Then 'I can fill in the form' do
