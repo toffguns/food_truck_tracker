@@ -28,7 +28,7 @@ class TimeAndPlacesController < ApplicationController
 
     respond_to do |format|
       if @time_and_place.save
-        format.html { redirect_to @time_and_place, notice: 'Time and place was successfully created.' }
+        format.html { redirect_to '/', notice: 'Time and place was successfully created.' }
         format.json { render :show, status: :created, location: @time_and_place }
       else
         format.html { render :new }
