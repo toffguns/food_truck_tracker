@@ -4,8 +4,15 @@ RSpec.feature "LandingPages", type: :feature do
 
   context 'Going to website' do
    Steps 'Being welcomed' do
-     Given 'I am on the truck profile page' do
+     Given 'I am trying to visit the trucks page' do
        visit '/trucks'
+     end
+     When 'I fill in email and password fields' do
+       click_link 'Sign up'
+       fill_in 'Email', with: 'food02@gmail.com'
+       fill_in 'Password', with: 'federico'
+       fill_in 'Password confirmation', with: 'federico'
+       click_button 'Sign up'
      end
      Then 'I can see the list of trucks' do
        expect(page).to have_content('Listing Trucks')
