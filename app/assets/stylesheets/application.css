@@ -20,3 +20,24 @@
   align-items: center;
   flex-direction: column;
 }
+
+#sign-up-container {
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  margin-top: 80px;
+  padding-bottom: 30px;
+}
+
+#log-in-container {
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  margin-top: 80px;
+  padding-bottom: 30px;
+}
+
+table {
+  width: 80%;
+  margin: 100px;
+}
