@@ -1,0 +1,9 @@
+<% if contributor_signed_in? %>
+  <li>
+  <%= link_to('Logout', destroy_contributor_session_path, :method => :delete) %>
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_contributor_session_path)  %>
+  </li>
+<% end %>
