@@ -14,7 +14,7 @@ RSpec.feature "TimeAndPlace", type: :feature do
         click_button 'Sign up'
       end
       Given 'I go to the new TimeAndPlace for' do
-        visit 'time_and_places/new'
+        visit '/time_and_places/new'
       end
       Then 'I can fill in the form' do
         fill_in 'time_and_place_street_address', with: "12345 main street"
