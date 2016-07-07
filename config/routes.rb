@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
-  get 'owner/check_auth'
 
+  devise_for :contributors, :controllers => { :omniauth_callbacks => "contributors/omniauth_callbacks" }
   devise_for :owners
+
   resources :owners
   resources :trucks
   resources :time_and_places
+  resources :contributors
+
+  get 'owner/check_auth'
+  get 'contributors/check_auth'
 
   root "landing_page#index"
 
@@ -36,7 +41,7 @@ Rails.application.routes.draw do
   #     resources :owners, only: [:new, :create, :edit, :update, :destroy]
   #   end
   # end
-  
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

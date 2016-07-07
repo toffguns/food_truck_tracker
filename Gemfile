@@ -28,7 +28,12 @@ gem 'geocoder'
 gem 'gmaps4rails'
 #devise gem
 gem 'devise'
+
+#omniauth gem
+gem 'omniauth-facebook'
+
 gem 'textacular', '~>3.0'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
