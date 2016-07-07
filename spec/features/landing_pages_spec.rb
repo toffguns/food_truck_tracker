@@ -9,7 +9,7 @@ RSpec.feature "LandingPages", type: :feature do
      end
      Then 'I can see a welcome message' do
        expect(page).to have_content('Food Trucker')
-       expect(page).to have_content('About Food Trucker')
+       expect(page).to have_content('Welcome to Food Trucker')
      end
      Then 'I can view a placeholder for a map' do
        expect(page).to have_content('Your map')
