@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "LandingPages", type: :feature do
+RSpec.feature "Truck Profile", type: :feature do
 
   context 'Going to website' do
    Steps 'Being welcomed' do
@@ -8,11 +8,14 @@ RSpec.feature "LandingPages", type: :feature do
        visit '/trucks'
      end
      When 'I fill in email and password fields' do
-       click_link 'Sign up'
+       click_link 'Register'
        fill_in 'Email', with: 'food02@gmail.com'
        fill_in 'Password', with: 'federico'
        fill_in 'Password confirmation', with: 'federico'
        click_button 'Sign up'
+     end
+     Given 'I am trying to visit the trucks page' do
+       visit '/trucks'
      end
      Then 'I can see the list of trucks' do
        expect(page).to have_content('Listing Trucks')
