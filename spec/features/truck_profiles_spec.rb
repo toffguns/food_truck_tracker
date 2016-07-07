@@ -14,6 +14,7 @@ RSpec.feature "Truck Profile", type: :feature do
        fill_in 'Password confirmation', with: 'federico'
        click_button 'Sign up'
      end
+
      Given 'I am trying to visit the trucks page' do
        visit '/trucks'
      end

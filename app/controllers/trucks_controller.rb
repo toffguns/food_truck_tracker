@@ -1,5 +1,6 @@
 class TrucksController < ApplicationController
   before_action :set_truck, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_owner!, except: [:index, :show]
 
   # GET /trucks
   # GET /trucks.json
@@ -69,6 +70,6 @@ class TrucksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def truck_params
-      params.require(:truck).permit(:name, :cuisine, :menu)
+      params.require(:truck).permit(:name, :cuisine, :menu, :owner_id)
     end
 end
