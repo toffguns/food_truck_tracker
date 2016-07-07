@@ -28,4 +28,8 @@
 
 <br>
 
-<%= link_to 'New Truck', new_truck_path %>
+
+
+<% if !current_owner.nil? %>
+  <%= link_to 'New Truck', new_truck_path %>
+<% end %>
