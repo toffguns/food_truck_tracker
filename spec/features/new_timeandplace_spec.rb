@@ -7,11 +7,14 @@ RSpec.feature "TimeAndPlace", type: :feature do
         visit 'time_and_places/new'
       end
       When 'I fill in email and password fields' do
-        click_link 'Sign up'
+        click_link 'Register'
         fill_in 'Email', with: 'food02@gmail.com'
         fill_in 'Password', with: 'federico'
         fill_in 'Password confirmation', with: 'federico'
         click_button 'Sign up'
+      end
+      Given 'I go to the new TimeAndPlace for' do
+        visit 'time_and_places/new'
       end
       Then 'I can fill in the form' do
         fill_in 'time_and_place_street_address', with: "12345 main street"
