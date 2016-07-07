@@ -21,6 +21,7 @@ RSpec.feature "TimeAndPlace", type: :feature do
         fill_in 'City', with: "San Diego"
         fill_in 'Zip code', with: "12345"
         fill_in 'State', with: "CA"
+        fill_in 'Truck', with: 1
       end
       And 'I can click the create instance button' do
         click_button "Create Time and place"
