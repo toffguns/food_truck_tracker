@@ -12,7 +12,9 @@ class LandingPageController < ApplicationController
      marker.lat time_and_place.latitude
      marker.lng time_and_place.longitude
      marker.infowindow "<b><i>"+ time_and_place.truck.name + "</i></b>" + "<b><br> Cuisine:</b> " + time_and_place.truck.cuisine + "<br>" +
-     "<b> Menu: </b>" + time_and_place.truck.menu + "<b><br> Start Time: </b>" +  time_and_place.start_time.to_s + "<b><br> End Time: </b>" + time_and_place.end_time.to_s
+     "<b> Menu: </b>" + time_and_place.truck.menu + "<br><br><em>" +
+     time_and_place.created_at.strftime("%a %m/%d") + "</em>" + "<b><br> Start Time: </b>" +
+      time_and_place.start_time.strftime("%I:%M %p") + "<b><br> End Time: </b>" + time_and_place.end_time.strftime("%I:%M %p")
 
 
     end
