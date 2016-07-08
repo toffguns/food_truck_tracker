@@ -15,9 +15,6 @@ function createGmap(data) {
 function loadAndCreateGmap() {
   // Only load map data if we have a map on the page
   if ($('#map').length > 0) {
-    // Access the data-truck-id attribute on the map element
-    var truckId = $('#map').attr('data-truck-id');
-
     $.ajax({
       dataType: 'json',
       url: '/landing_page/' + 'map_location',

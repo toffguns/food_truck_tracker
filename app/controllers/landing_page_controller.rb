@@ -7,11 +7,14 @@ class LandingPageController < ApplicationController
   end
 
   def map_location
-    @trucks = Truck.find(params[:truck_id])
-    @hash = Gmaps4rails.build_markers(@truck) do |truck, marker|
-     marker.lat truck.latitude
-     marker.lng truck.longitude
-     marker.infowindow truck.address
+    @time_and_places = TimeAndPlace.all
+    @hash = Gmaps4rails.build_markers(@time_and_places) do |time_and_place, marker|
+     marker.lat time_and_place.latitude
+     marker.lng time_and_place.longitude
+     marker.infowindow "<b><i>"+ time_and_place.truck.name + "</i></b>" + "<b><br> Cuisine:</b> " + time_and_place.truck.cuisine + "<br>" +
+     "<b> Menu: </b>" + time_and_place.truck.menu + "<b><br> Start Time: </b>" +  time_and_place.start_time.to_s + "<b><br> End Time: </b>" + time_and_place.end_time.to_s
+
+
     end
     render json: @hash.to_json
   end

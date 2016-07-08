@@ -72,6 +72,6 @@ class TimeAndPlacesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def time_and_place_params
-      params.require(:time_and_place).permit(:start_time, :end_time, :street_address, :city, :state, :zip_code)
+      params.require(:time_and_place).permit(:start_time, :end_time, :street_address, :city, :state, :zip_code, :truck_id)
     end
 end

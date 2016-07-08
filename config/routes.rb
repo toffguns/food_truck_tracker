@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get 'owner/check_auth'
   get 'contributors/check_auth'
+  get "/landing_page/map_location"
 
   root "landing_page#index"
 
