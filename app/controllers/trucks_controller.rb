@@ -20,7 +20,7 @@ class TrucksController < ApplicationController
 
   # GET /trucks/1/edit
   def edit
-  end
+  endsss
 
   # POST /trucks
   # POST /trucks.json

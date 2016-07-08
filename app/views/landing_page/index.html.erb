@@ -6,24 +6,8 @@
   </div>
 </div>
 
-<div id="map-container">
-  <div id="map">
-    <p>Your map will appear here</p>
-  </div>
-  <script type="text/javascript">
-  handler = Gmaps.build('Google');
-  handler.buildMap({
-      provider: {},
-      internal: {id: 'map'}
-    },
-    function() {
-      markers = handler.addMarkers(<%=raw @pindrop.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      handler.getMap().setZoom(17);
-    }
-  );
-  </script>
+<div id="map" data-truck-id="<%=@trucks%>">Google Map will appear here...</div>
+
 
 
   <p id="trucks-link"><a href="/trucks">List of Food Trucks</a></p>
