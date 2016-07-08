@@ -1,7 +1,7 @@
 <div class="page-header">
   <%= link_to new_owner_path, class: 'btn btn-primary' do %>
     <span class="glyphicon glyphicon-plus"></span>
-    New Test
+    New Owner
   <% end %>
   <h1>Listing owners</h1>
 </div>
@@ -10,7 +10,7 @@
   <table class="table table-striped table-bordered table-hover">
     <thead>
       <tr>
-            <th></th>
+        <th></th>
         <th></th>
         <th></th>
       </tr>
@@ -18,7 +18,8 @@
 
     <tbody>
       <%= content_tag_for(:tr, @owners) do |owner| %>
-            <td><%= link_to 'Show', owner %></td>
+        <td><%= owner.email %></td>
+        <td><%= link_to 'Show', owner %></td>
         <td><%= link_to 'Edit', edit_owner_path(owner) %></td>
         <td><%= link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
