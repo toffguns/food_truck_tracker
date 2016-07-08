@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   devise_for :contributors, :controllers => { :omniauth_callbacks => "contributors/omniauth_callbacks" }
   devise_for :owners
 
