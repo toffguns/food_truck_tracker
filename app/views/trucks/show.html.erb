@@ -15,7 +15,8 @@
   <%= @truck.menu %>
 </p>
 
-<%= render 'time_and_place_form' %>
-
-<%= link_to 'Edit', edit_truck_path(@truck) %> |
+<% if @truck.owner == current_owner %>
+  <%= render 'time_and_place_form' %>
+  <%= link_to 'Edit', edit_truck_path(@truck) %> |
+<% end %>
 <%= link_to 'Back', trucks_path %>
