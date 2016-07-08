@@ -19,8 +19,10 @@
         <td><%= truck.cuisine %></td>
         <td><%= truck.menu %></td>
         <td><%= link_to 'Show', truck %></td>
-        <td><%= link_to 'Edit', edit_truck_path(truck) %></td>
-        <td><%= link_to 'Destroy', truck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if truck.owner == current_owner %>
+          <td><%= link_to 'Edit', edit_truck_path(truck) %></td>
+          <td><%= link_to 'Destroy', truck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
