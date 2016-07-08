@@ -11,6 +11,7 @@ class TrucksController < ApplicationController
   # GET /trucks/1
   # GET /trucks/1.json
   def show
+    @time_and_place = TimeAndPlace.new
   end
 
   # GET /trucks/new
