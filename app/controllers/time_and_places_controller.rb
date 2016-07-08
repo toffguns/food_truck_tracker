@@ -29,10 +29,12 @@ class TimeAndPlacesController < ApplicationController
 
     @time_and_place = TimeAndPlace.new(time_and_place_params)
 
+    # create path for page to be rendered if save is successful
+    new_path = '/trucks/' + @time_and_place.truck_id.to_s
 
     respond_to do |format|
       if @time_and_place.save
-        format.html { redirect_to '/', notice: 'Time and place was successfully created.' }
+        format.html { redirect_to new_path, notice: 'Time and place was successfully created.' }
         format.json { render :show, status: :created, location: @time_and_place }
       else
         format.html { render :new }
