@@ -1,16 +1,20 @@
 class OwnersController < ApplicationController
-  before_filter :validate_owner, :only => :show
+  before_filter :validate_owner!#, :only => :show
   before_action :set_owner, only: [:show, :edit, :update, :destroy]
   # before_action :check_auth
-  skip_before_action :authenticate_owner!
+  # skip_before_action :authenticate_user!
 
   # def check_auth
   #   unless owner_signed_in?
   #     redirect_to landing_page_index_path
   #   end
   # end
-  def validate_owner
-    redirect_to '/' unless current_owner.id.to_s == params[:id]
+  def validate_owner!
+    authenticate_owner!
+    if current_owner.id.to_s != params[:id] || params[:id] == nil
+      redirect_to '/'
+    end
+    # redirect_to '/' unless current_owner.id.to_s == params[:id]
   end
   # GET /owners
   # GET /owners.json
