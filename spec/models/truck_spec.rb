@@ -5,6 +5,4 @@ RSpec.describe Truck, type: :model do
     expect{Truck.create!(name: "", cuisine: "", menu: "")}.to raise_error
   end
 
-
-
 end
