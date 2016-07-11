@@ -30,7 +30,7 @@ class TrucksController < ApplicationController
 
     respond_to do |format|
       if @truck.save
-        format.html { redirect_to @truck, notice: 'Truck was successfully created.' }
+        format.html { redirect_to @truck.owner, notice: 'Truck was successfully created.' }
         format.json { render :show, status: :created, location: @truck }
       else
         format.html { render :new }
