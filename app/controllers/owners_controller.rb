@@ -26,6 +26,7 @@ class OwnersController < ApplicationController
   # GET /owners/1.json
   def show
     @owner = Owner.find(params[:id])
+    @truck = Truck.new
   end
 
   # GET /owners/new
