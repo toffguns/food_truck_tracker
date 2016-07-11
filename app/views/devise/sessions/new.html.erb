@@ -1,21 +1,10 @@
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
 
 <div class="container">
-  <div class="col-sm-4"></div>
+  <div class="col-sm-1"></div>
 
   <div class="col-sm-4" id="log-in-container">
-    <h2>Log in</h2>
+    <h2>Log in as a Food Truck Owner</h2>
 
-    <%- unless devise_mapping.omniauthable? %>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
         <%= f.label :email %><br />
@@ -38,8 +27,31 @@
         <%= f.submit "Log in" %>
       </div>
     <% end %>
-    <% end -%>
+
 
     <%= render "devise/shared/links" %>
+  </div>
+
+  <div class="col-sm-1"></div>
+  <div class="col-sm-4" id="log-in-container">
+    <h2>Log in as Contributor</h2>
+
+    <%- if controller_name != 'sessions' %>
+    <%= link_to "Log in", new_session_path(:contributor) %><br />
+    <% end -%>
+
+
+    <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+    <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(:contributor) %><br />
+    <% end -%>
+
+    <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+    <%= link_to "Didn't receive unlock instructions?", new_unlock_path(:contributor) %><br />
+    <% end -%>
+
+    <%- Contributor.omniauth_providers.each do |provider| %>
+    <%= link_to image_tag("facebook2.png"), omniauth_authorize_path(:contributor, provider) %><br />
+    <% end -%>
+
   </div>
 </div>
