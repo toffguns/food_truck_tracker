@@ -11,10 +11,10 @@ class OwnersController < ApplicationController
   # end
   def validate_owner!
     authenticate_owner!
+    # redirect_to '/' unless current_owner.id.to_s == params[:id]
     if current_owner.id.to_s != params[:id] || params[:id] == nil
       redirect_to '/'
     end
-    # redirect_to '/' unless current_owner.id.to_s == params[:id]
   end
   # GET /owners
   # GET /owners.json

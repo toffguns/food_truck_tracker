@@ -41,3 +41,7 @@ table {
   width: 80%;
   margin: 100px;
 }
+
+#profile-link {
+  float: right;
+}
