@@ -21,6 +21,7 @@ class TrucksController < ApplicationController
 
   # GET /trucks/1/edit
   def edit
+    @time_and_place = TimeAndPlace.new
   end
 
   # POST /trucks
