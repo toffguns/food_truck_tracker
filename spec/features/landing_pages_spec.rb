@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "LandingPages", type: :feature do
+RSpec.feature "LandingPages", type: :feature, js: true do
 
   context 'Going to website' do
    Steps 'Being welcomed' do
@@ -13,6 +13,9 @@ RSpec.feature "LandingPages", type: :feature do
      end
      Then 'I can view a placeholder for a map' do
        expect(page).to have_content('Your map')
+     end
+     And 'I can view a map with trucks on it' do
+       page.find("#map")[:class].include?("gm-style")
      end
    end
  end
