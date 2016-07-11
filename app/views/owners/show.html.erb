@@ -1,3 +1,6 @@
+
+
+
 <div class="page-header">
   <%= link_to owners_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
@@ -7,7 +10,7 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit
   <% end %>
-  <h1>Show owner</h1>
+  <h1><%= @owner.email %></h1>
 </div>
 
 <dl class="dl-horizontal">

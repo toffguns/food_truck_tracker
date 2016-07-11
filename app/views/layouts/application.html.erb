@@ -52,6 +52,13 @@
             </li>
           <% end %>
         </ul>
+        <% if !current_owner.nil? %>
+          <ul id="profile-link" class="nav navbar-nav">
+            <li>
+              <%= link_to('Profile', owner_path(current_owner))  %>
+            </li>
+          </ul>
+        <% end %>
       </div>
     </div>
   </nav>
