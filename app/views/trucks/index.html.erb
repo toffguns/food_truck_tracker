@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Image</th>
       <th>Name</th>
       <th>Cuisine</th>
       <th>Menu</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @trucks.each do |truck| %>
       <tr>
+        <td> <%= link_to image_tag(truck.image.url(:small)), truck.image.url %> </td>
         <td><%= truck.name %></td>
         <td><%= truck.cuisine %></td>
         <td><%= truck.menu %></td>

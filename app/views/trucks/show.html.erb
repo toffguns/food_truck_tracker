@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<%= link_to image_tag(@truck.image.url(:large)), @truck.image.url %>
+<h1>
   <%= @truck.name %>
-</p>
+</h1>
 
 <p>
   <strong>Cuisine:</strong>
