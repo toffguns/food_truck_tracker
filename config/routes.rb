@@ -16,10 +16,9 @@ Rails.application.routes.draw do
   get 'landing_page/search'
 
 
-  #
-  # devise_scope :owner do
-  #    get "/" => "devise/registrations#new"
-  # end
+  devise_scope :owner do
+  get '/login' => 'devise/sessions#new'
+  end
 
 
   # unauthenticated :owner do
