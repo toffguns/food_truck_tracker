@@ -48,6 +48,7 @@ RSpec.feature "Searches", type: :feature do
         click_link 'New Truck'
       end
       And 'I can fill in the fields and click on the new truck button' do
+        attach_file("Image", Rails.root + "app/assets/images/facebook2.png")
         fill_in 'Name', with: 'Rodney Riguez'
         fill_in 'Cuisine', with: 'fish'
         fill_in 'Menu', with: 'Rumbo'
