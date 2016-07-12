@@ -13,13 +13,11 @@ Rails.application.routes.draw do
   get 'owner/check_auth'
   get 'contributors/check_auth'
   get "/landing_page/map_location"
-
   root "landing_page#index"
 
-  #
-  # devise_scope :owner do
-  #    get "/" => "devise/registrations#new"
-  # end
+  devise_scope :owner do
+  get "/login" => "devise/sessions#new"
+  end
 
 
   # unauthenticated :owner do
