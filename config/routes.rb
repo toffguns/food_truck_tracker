@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  root "landing_page#index"
 
   devise_for :contributors, :controllers => { :omniauth_callbacks => "contributors/omniauth_callbacks" }
   devise_for :owners
@@ -12,11 +12,12 @@ Rails.application.routes.draw do
 
   get 'owner/check_auth'
   get 'contributors/check_auth'
-  get "/landing_page/map_location"
-  root "landing_page#index"
+  get 'landing_page/map_location'
+  get 'landing_page/search'
+
 
   devise_scope :owner do
-  get "/login" => "devise/sessions#new"
+  get '/login' => 'devise/sessions#new'
   end
 
 
