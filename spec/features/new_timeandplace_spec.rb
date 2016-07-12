@@ -14,6 +14,7 @@ RSpec.feature "TimeAndPlace", type: :feature do
       Then 'I create a new truck' do
         click_link 'List of Food Trucks'
         click_link 'New Truck'
+        attach_file("Image", Rails.root + "app/assets/images/facebook2.png")
         fill_in 'Name', with: 'Al\'s possum truck'
         fill_in 'Cuisine', with: 'backwood bbq'
         fill_in 'Menu', with: 'possum squirrel racoon'
