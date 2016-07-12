@@ -11,7 +11,7 @@ class TrucksController < ApplicationController
   # GET /trucks/1
   # GET /trucks/1.json
   def show
-    @time_and_place = TimeAndPlace.new
+    @time_and_place = TimeAndPlace.find(current_owner.id)
   end
 
   # GET /trucks/new

@@ -14,9 +14,6 @@ class LandingPageController < ApplicationController
      marker.infowindow '<b><a href="/trucks/'+ time_and_place.truck.id.to_s + '">'+ time_and_place.truck.name+'</b></a>'  + "<b><br> Cuisine:</b> " + time_and_place.truck.cuisine + "<br>" +
      "<b> Menu: </b>" + time_and_place.truck.menu + "<br><br><em>" +'<b>'+
      time_and_place.start_time.strftime("%a %m/%d") + "</b></em> <br>"'<b>Address: </b>' + time_and_place.street_address + ", " + time_and_place.city + '<br>' "<b><br> Start Time: </b>" + time_and_place.start_time.strftime("%I:%M %p") + '</b>' +"<b><br> End Time: </b>" + time_and_place.end_time.strftime("%I:%M %p")
-
-
-
     end
     render json: @hash.to_json
   end
