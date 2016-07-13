@@ -78,10 +78,6 @@ RSpec.feature "Searches", type: :feature do
       And 'I can click on the Search button' do
         click_button 'search_button'
       end
-      # And 'I should see Rodney Riguez on the page' do
-      #   expect(page).to have_content "Rodney Riguez"
-      #   expect(page).to_not have_content "shrimp blimp"
-      # end
     end
   end
 end
