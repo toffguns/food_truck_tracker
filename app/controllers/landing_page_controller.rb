@@ -25,7 +25,9 @@ class LandingPageController < ApplicationController
     @time_and_places = []
     @result.each do |truck|
       truck.time_and_places.each do |time_and_place|
-        @time_and_places << time_and_place
+        if time_and_place.start_time.past? && time_and_place.end_time.future?
+          @time_and_places << time_and_place
+        end
       end
     end
     @hash = Gmaps4rails.build_markers(@time_and_places) do |time_and_place, marker|
