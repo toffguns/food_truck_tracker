@@ -11,6 +11,11 @@
   <button id="search_button">Search</button>
 </div>
 
+<div class="field">
+  <input type="text" placeholder="Enter search text here" name="address_search" id="address_search_field"/>
+  <button id="recenter_map_button">Go</button>
+</div>
+
 <% if !@result.blank? %>
   <table>
     <thead>
@@ -37,7 +42,7 @@
 
 <div id="map-title">
   <h1><center> Live Map of Food Trucks in San Diego</center></h1>
-  
+
 <div id="map-container">
   <div id="map">Your map will appear here...</div>
 </div>

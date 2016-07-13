@@ -78,6 +78,12 @@ RSpec.feature "Searches", type: :feature do
       And 'I can click on the Search button' do
         click_button 'search_button'
       end
+      Then 'I can search by address' do
+        fill_in 'address_search', with: '3803 Ray St.'
+      end
+      And 'I can click on the Address Search button' do
+        click_button 'recenter_map_button'
+      end
     end
   end
 end
