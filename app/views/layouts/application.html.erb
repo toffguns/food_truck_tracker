@@ -70,7 +70,11 @@
       <% end %>
     <% end %>
   </div>
-  <%= yield %>
+  <div class="container">
+    <div class="row">
+    <%= yield %>
+    </div>
+  </div>
   <%= render 'layouts/footer' %>
 </body>
 </html>
