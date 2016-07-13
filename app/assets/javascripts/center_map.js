@@ -11,7 +11,7 @@ function loadAndCreateGmapRecenter() {
       method: 'GET',
       data: '',
       success: function(data) {
-        createGmapRecenter(data);
+        getDatabaseValues(data);
       },
       error: function(jqXHR, textStatus, errorThrown) {
         alert("Getting map data failed: " + errorThrown);
@@ -19,9 +19,28 @@ function loadAndCreateGmapRecenter() {
     });
   }
 };
+
+function getDatabaseValues(input) {
+  var latitude = input.results[0].geometry.location.lat;
+  var longitude = input.results[0].geometry.location.lng;
+  $.ajax({
+    dataType: 'json',
+    url: '/landing_page/get_markers_by_address?latitude=' + latitude + '&longitude=' + longitude,
+    method: 'GET',
+    data: '',
+    success: function(data) {
+      data["map_center"] = input;
+      createGmapRecenter(data);
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+      alert("Getting database data failed: " + errorThrown);
+    }
+  });
+};
+
 function createGmapRecenter(data) {
-  var latitude = data.results[0].geometry.location.lat;
-  var longitude = data.results[0].geometry.location.lng;
+  var latitude = data.map_center.results[0].geometry.location.lat;
+  var longitude = data.map_center.results[0].geometry.location.lng;
   handler = Gmaps.build('Google');
   handler.buildMap({
       provider: {center: {lat: latitude, lng: longitude}},
@@ -31,7 +50,6 @@ function createGmapRecenter(data) {
       markers = handler.addMarkers(data);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
-      handler.getMap().setZoom(11);
     }
   );
 };
