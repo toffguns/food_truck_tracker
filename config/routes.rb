@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   devise_for :owners
 
   resources :owners
-  resources :trucks
+  resources :trucks do
+    resources :reviews, except: [:show, :index]
+  end
   resources :time_and_places
   resources :contributors
 

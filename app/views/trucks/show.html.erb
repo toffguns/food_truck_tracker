@@ -17,6 +17,8 @@
       <strong>Menu:</strong>
       <%= @truck.menu %>
     </p>
+    <div class="star-rating" data-score= <%= @avg_review %> ></div>
+    <em><%= "#{@reviews.length} reviews" %></em>
   </div>
 </div>
 
@@ -58,10 +60,30 @@
 <% end %>
 
 <% if contributor_signed_in? %>
-<div class="fb-comments" expr:href='data:post.url' data-numposts="5"></div>
+  
+  <%= render 'reviews/form' %>
+  </div>
+  <div class="fb-comments" expr:href='data:post.url' data-numposts="5"></div>
 <% else %>
-<a href="/login"><h3> Write a Review or Comment </h3></a>
+  <a href="/login"><h3> Write a Review or Comment </h3></a>
 <% end %>
 
 
 <%= link_to 'Back', trucks_path %>
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
+
+<script>
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+</script>
