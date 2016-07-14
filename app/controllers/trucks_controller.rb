@@ -11,6 +11,14 @@ class TrucksController < ApplicationController
   # GET /trucks/1
   # GET /trucks/1.json
   def show
+    @reviews = Review.where(truck_id: @truck)
+    @review = Review.new
+
+    if @reviews.blank?
+      @avg_review = 0
+    else
+      @avg_review = @reviews.average(:rating).round(2)
+    end
   end
 
   # GET /trucks/new
@@ -25,7 +33,6 @@ class TrucksController < ApplicationController
   # POST /trucks
   # POST /trucks.json
   def create
-
     @truck = Truck.new(truck_params)
 
     respond_to do |format|
@@ -72,7 +79,7 @@ class TrucksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def truck_params
-      params.require(:truck).permit(:name, :cuisine, :menu, :owner_id, :image, :comment)
+      params.require(:truck).permit(:name, :cuisine, :menu, :owner_id, :image, :comment, :rating)
     end
 
 end
