@@ -11,6 +11,7 @@ class TrucksController < ApplicationController
   # GET /trucks/1
   # GET /trucks/1.json
   def show
+    @contributor = current_contributor
   end
 
   # GET /trucks/new
@@ -26,9 +27,7 @@ class TrucksController < ApplicationController
   # POST /trucks
   # POST /trucks.json
   def create
-
     @truck = Truck.new(truck_params)
-
     respond_to do |format|
       if @truck.save
         format.html { redirect_to @truck.owner, notice: 'Truck was successfully created.' }
@@ -51,6 +50,7 @@ class TrucksController < ApplicationController
         format.html { render :edit }
         format.json { render json: @truck.errors, status: :unprocessable_entity }
       end
+
     end
   end
 

@@ -8,6 +8,12 @@
     Edit
   <% end %>
   <h1>Show contributor</h1>
+  <h3> Your Images </h3>
+  <div class="row">
+    <div class="col-sm-4">
+      <%= link_to image_tag(@contributor.image.url(:large)), @contributor.image.url %>
+    </div>
+  </div>
 </div>
 
 <dl class="dl-horizontal">

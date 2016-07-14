@@ -57,11 +57,28 @@
   </div>
 </div>
 
+<%= form_for @contributor, html: { multipart: true }, :url => {:controller => "contributors", :action => "update"} do |f| %>
+  <div class="field">
+    <%= f.label 'Upload an image of your food ' %><br>
+    <%= f.file_field :image %>
+    <div class='field'>
+    <%= submit_tag('Submit')%>
+  </div>
+  </div>
+<%end%>
+<div class="row">
+  <div class="col-sm-7">
+    <%= link_to image_tag(@contributor.image.url(:large)), @contributor.image.url %>
+  </div>
+  <div id="selected_images"></div>
+
+
+
+
 <% if contributor_signed_in? %>
 <div class="fb-comments" expr:href='data:post.url' data-numposts="5"></div>
 <% else %>
 <a href="/login"><h3> Write a Review or Comment </h3></a>
 <% end %>
-
 
 <%= link_to 'Back', trucks_path %>

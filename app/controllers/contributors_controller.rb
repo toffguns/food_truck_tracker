@@ -25,7 +25,7 @@ class ContributorsController < ApplicationController
   # GET /contributors/1
   # GET /contributors/1.json
   def show
-    contributor = Contributor.find(params[:id])
+    @contributor = Contributor.find(params[:id])
   end
 
   # GET /contributors/new
@@ -56,9 +56,10 @@ class ContributorsController < ApplicationController
   # PATCH/PUT /contributors/1
   # PATCH/PUT /contributors/1.json
   def update
+    @contributor = Contributor.find(params[:id])
     respond_to do |format|
-      if contributor.update(contributor_params)
-        format.html { redirect_to contributor, notice: 'Contributor was successfully updated.' }
+      if @contributor.update(contributor_params)
+        format.html { redirect_to @contributor, notice: 'Contributor was successfully updated.' }
         format.json { render :show, status: :ok, location: contributor }
       else
         format.html { render :edit }
@@ -85,6 +86,6 @@ class ContributorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contributor_params
-      params.fetch(:contributor, {})
+      params.fetch(:contributor, {} ).permit( :image)
     end
 end
