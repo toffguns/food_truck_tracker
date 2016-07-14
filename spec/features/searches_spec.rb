@@ -29,7 +29,7 @@ RSpec.feature "Searches", type: :feature do
       end
       Then 'when I go to the shrimp blimp edit page' do
         id = (Truck.where(name: "shrimp blimp"))[0].id
-        visit ('/trucks/' + id.to_s + '/edit')
+        visit ('/time_and_places/new?truck_id=' + id.to_s)
       end
       And 'I fill in the timeandplace fields' do
         select '2017', from: 'time_and_place_start_time_1i'
@@ -59,7 +59,7 @@ RSpec.feature "Searches", type: :feature do
       end
       Then 'when I go to the Rodney Riguez edit page' do
         id = (Truck.where(name: "Rodney Riguez"))[0].id
-        visit ('/trucks/' + id.to_s + '/edit')
+        visit ('/time_and_places/new?truck_id=' + id.to_s)
       end
       And 'I fill in the timeandplace fields' do
         select '2019', from: 'time_and_place_end_time_1i'
