@@ -45,17 +45,17 @@
             <td><%= time_and_place.state %></td>
             <td><%= time_and_place.zip_code %></td>
             <td><%= link_to 'Show', time_and_place %></td>
-            <td><%= link_to 'Edit', edit_time_and_place_path(time_and_place) %></td>
-            <td><%= link_to 'Destroy', time_and_place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><% if @truck.owner == current_owner %>
+            <%= link_to 'Edit', edit_truck_path(@truck) %>
+            <% end %></td>
+            <td> <% if @truck.owner == current_owner %>
+            <%= link_to 'Destroy', time_and_place, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
           </tr>
         <% end %>
       </tbody>
     </table>
   </div>
 </div>
-<% if @truck.owner == current_owner %>
-  <%= link_to 'Edit', edit_truck_path(@truck) %> |
-<% end %>
 
 <% if contributor_signed_in? %>
 <div class="fb-comments" expr:href='data:post.url' data-numposts="5"></div>
