@@ -59,9 +59,10 @@ class TimeAndPlacesController < ApplicationController
   # DELETE /time_and_places/1
   # DELETE /time_and_places/1.json
   def destroy
+    @truck = Truck.find(@time_and_place.truck_id)
     @time_and_place.destroy
     respond_to do |format|
-      format.html { redirect_to time_and_places_url, notice: 'Time and place was successfully destroyed.' }
+      format.html { redirect_to @truck, notice: 'Time and place was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
