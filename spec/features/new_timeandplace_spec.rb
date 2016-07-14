@@ -23,8 +23,8 @@ RSpec.feature "TimeAndPlace", type: :feature do
       And 'I go to my profile page' do
         click_link 'Profile'
       end
-      Then 'I can click on the truck\'s edit page' do
-        click_link 'Edit'
+      Then 'I can click on the new time and place link' do
+        click_link 'New Time And Place'
       end
       And 'I create a new time and place for my truck' do
         fill_in 'Street address', with: '3803 Ray St.'
