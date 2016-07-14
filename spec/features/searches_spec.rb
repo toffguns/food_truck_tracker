@@ -12,7 +12,7 @@ RSpec.feature "Searches", type: :feature do
         click_button 'Sign up'
       end
       Then 'I can click on the list of food trucks link' do
-        click_link 'List of Food Trucks'
+        click_link 'Truck List'
       end
       And 'I can click on the New truck link' do
         click_link 'New Truck'
@@ -42,7 +42,7 @@ RSpec.feature "Searches", type: :feature do
         visit '/'
       end
       Then 'I can click on the list of food trucks link' do
-        click_link 'List of Food Trucks'
+        click_link 'Truck List'
       end
       And 'I can click on the New truck link' do
         click_link 'New Truck'
