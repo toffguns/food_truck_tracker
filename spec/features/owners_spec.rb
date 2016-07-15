@@ -29,6 +29,33 @@ RSpec.feature "Owners", type: :feature do
         fill_in 'Menu', with: 'barbacoa'
         click_button 'Create Truck'
       end
+      And 'I can go to my profile page' do
+        click_link 'Profile'
+      end
+      And 'click on the Edit Owner button' do
+        click_link 'Edit Owner'
+      end
+      And 'I can fill in the fields to change the email and password' do
+        fill_in 'Email', with: 'asdf@asdf.com'
+        fill_in 'Password', with: 'qwerqwer'
+        fill_in 'Password confirmation', with: 'qwerqwer'
+        fill_in 'Current password', with: 'federico'
+        click_button 'Update'
+      end
+      Then 'I can logout' do
+        click_link 'Logout'
+      end
+      And 'click the login link' do
+        click_link 'Login'
+      end
+      And 'enter the new account information' do
+        fill_in 'Email', with: 'asdf@asdf.com'
+        fill_in 'Password', with: 'qwerqwer'
+      end
+      And 'click the login button' do
+        click_button 'Log in'
+        expect(page).to have_content 'Signed in successfully'
+      end
     end
   end
 end
