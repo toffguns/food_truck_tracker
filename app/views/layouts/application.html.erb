@@ -46,7 +46,9 @@
         <ul class="nav navbar-nav">
           <li><a href="/">Home</a></li>
           <li><a href="/trucks">Truck List</a></li>
-          <li><a href="/owners/sign_up">Register</a></li>
+          <% if current_owner.nil? %>
+            <li><a href="/owners/sign_up">Register</a></li>
+          <% end %>  
           <% if owner_signed_in? %>
             <li>
               <%= link_to('Logout', destroy_owner_session_path, :method => :delete) %>
