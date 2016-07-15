@@ -20,6 +20,7 @@ ul.hmenu li {
 }
 .jumbotron {
   font-family: 'Hind', sans-serif;
+   background:transparent;
 }
 #trucks-link {
   font-size: 18px;
