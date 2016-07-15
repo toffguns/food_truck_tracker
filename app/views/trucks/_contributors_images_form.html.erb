@@ -1,0 +1,9 @@
+<%= form_for @contributor, html: { multipart: true }, :url => {:controller => "contributors", :action => "update"} do |f| %>
+  <div class="field">
+    <%= f.label 'Upload an image of your food ' %><br>
+    <%= f.file_field :image %>
+    <div class='field'>
+    <%= submit_tag('Submit')%>
+  </div>
+  </div>
+<%end%>
