@@ -46,10 +46,10 @@ class TimeAndPlacesController < ApplicationController
   # PATCH/PUT /time_and_places/1
   # PATCH/PUT /time_and_places/1.json
   def update
-    
+    new_path = '/trucks/' + @time_and_place.truck_id.to_s
     respond_to do |format|
       if @time_and_place.update(time_and_place_params)
-        format.html { redirect_to @time_and_place, notice: 'Time and place was successfully updated.' }
+        format.html { redirect_to new_path, notice: 'Time and place was successfully updated.' }
         format.json { render :show, status: :ok, location: @time_and_place }
       else
         format.html { render :edit }
