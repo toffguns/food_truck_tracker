@@ -16,6 +16,7 @@ class OwnersController < ApplicationController
       redirect_to '/'
     end
   end
+
   # GET /owners
   # GET /owners.json
   def index
