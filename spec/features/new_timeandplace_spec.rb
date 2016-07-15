@@ -24,7 +24,7 @@ RSpec.feature "TimeAndPlace", type: :feature do
         click_link 'Profile'
       end
       Then 'I can click on the new time and place link' do
-        click_link 'New Time And Place'
+        click_link 'Create a New Location'
       end
       And 'I create a new time and place for my truck' do
         select '2018', from: 'time_and_place_start_time_1i'
@@ -57,7 +57,7 @@ RSpec.feature "TimeAndPlace", type: :feature do
         click_link 'Profile'
       end
       Then 'I can click on the new time and place link' do
-        click_link 'New Time And Place'
+        click_link 'Create a New Location'
       end
       And 'I create a new time and place for my truck' do
         select '2014', from: 'time_and_place_start_time_1i'
