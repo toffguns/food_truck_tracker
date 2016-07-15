@@ -47,7 +47,7 @@
             <td><%= time_and_place.state %></td>
             <td><%= time_and_place.zip_code %></td>
             <% if @truck.owner == current_owner %>
-              <td><%= link_to 'Edit', edit_time_and_place_path(time_and_place) %></td>
+              <td><%= link_to 'Edit', edit_time_and_place_path(time_and_place) + "?truck_id=" + time_and_place.truck_id.to_s  %></td>
               <td><%= link_to 'Destroy', time_and_place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% end %>
           </tr>
@@ -59,7 +59,7 @@
 
 
 <% if contributor_signed_in? %>
-  
+
   <%= render 'reviews/form' %>
   </div>
   <div class="fb-comments" expr:href='data:post.url' data-numposts="5"></div>
