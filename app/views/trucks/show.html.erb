@@ -59,7 +59,7 @@
 
 
 <% if contributor_signed_in? %>
-  
+
   <%= render 'reviews/form' %>
   </div>
   <div class="fb-comments" expr:href='data:post.url' data-numposts="5"></div>
@@ -68,7 +68,6 @@
 <% end %>
 
 
-<%= link_to 'Back', trucks_path %>
 
 <script>
     $('.star-rating').raty({
