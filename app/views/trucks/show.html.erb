@@ -36,19 +36,25 @@
       </thead>
 
       <tbody>
-        <% @truck.time_and_places.each do |time_and_place| %>
-          <tr>
-            <td><%= time_and_place.start_time %></td>
-            <td><%= time_and_place.end_time %></td>
-            <td><%= time_and_place.street_address %></td>
-            <td><%= time_and_place.city %></td>
-            <td><%= time_and_place.state %></td>
-            <td><%= time_and_place.zip_code %></td>
-            <% if @truck.owner == current_owner %>
-              <td><%= link_to 'Edit', edit_time_and_place_path(time_and_place, class:'btn btn-default') %></td>
-              <td><%= link_to 'Destroy', time_and_place, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default' %></td>
-            <% end %>
-          </tr>
+
+        <% @trucks_sorted_by_time = @truck.time_and_places.sort {|a,b| a.start_time <=> b.start_time } %>
+        <% @trucks_sorted_by_time.each do |time_and_place| %>
+          <% if !time_and_place.end_time.past? %>
+            <tr>
+              <td><%= time_and_place.start_time %></td>
+              <td><%= time_and_place.end_time %></td>
+              <td><%= time_and_place.street_address %></td>
+              <td><%= time_and_place.city %></td>
+              <td><%= time_and_place.state %></td>
+              <td><%= time_and_place.zip_code %></td>
+              <% if @truck.owner == current_owner %>
+                <td>
+                  <%= link_to 'Edit', edit_time_and_place_path(time_and_place), class:'btn btn-default' %>
+                </td>
+                <td><%= link_to 'Destroy', time_and_place, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default' %></td>
+              <% end %>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
@@ -64,7 +70,6 @@
 <% end %>
 
 
-<%= link_to 'Back', trucks_path %>
 
 <script>
     $('.star-rating').raty({
