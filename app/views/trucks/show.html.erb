@@ -22,9 +22,7 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-sm-9">
-    <table class="table">
+    <table class="table table-responsive">
       <thead>
         <tr>
           <th>Start time</th>
@@ -47,19 +45,17 @@
             <td><%= time_and_place.state %></td>
             <td><%= time_and_place.zip_code %></td>
             <% if @truck.owner == current_owner %>
-              <td><%= link_to 'Edit', edit_time_and_place_path(time_and_place) %></td>
-              <td><%= link_to 'Destroy', time_and_place, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Edit', edit_time_and_place_path(time_and_place, class:'btn btn-default') %></td>
+              <td><%= link_to 'Destroy', time_and_place, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default' %></td>
             <% end %>
           </tr>
         <% end %>
       </tbody>
     </table>
-  </div>
-</div>
 
 
 <% if contributor_signed_in? %>
-  
+
   <%= render 'reviews/form' %>
   </div>
   <div class="fb-comments" expr:href='data:post.url' data-numposts="5"></div>
