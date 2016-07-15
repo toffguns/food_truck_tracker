@@ -36,6 +36,21 @@ RSpec.feature "TimeAndPlace", type: :feature do
       Then 'I will be directed to my trucks profile page' do
         expect(page).to have_content 'Al\'s possum truck'
       end
+      Then 'I can go to the edit time and place page' do
+        truck_id = (Truck.where(name: "Al\'s possum truck"))[0].id
+        id = (TimeAndPlace.where(city: "San Diego"))[0].id
+        visit ('/time_and_places/'+ id.to_s + '/edit?truck_id=' + truck_id.to_s)
+      end
+      Then 'I can edit the time and place' do
+        fill_in 'Street address', with: '3803 Ray St.'
+        fill_in 'City', with: "San Diego"
+        fill_in 'Zip code', with: "92105"
+        fill_in 'State', with: "CA"
+        click_button 'Update Time and place'
+      end
+      Then 'I can see the changes made' do
+        expect(page).to have_content '92105'
+      end
     end
   end
 end
