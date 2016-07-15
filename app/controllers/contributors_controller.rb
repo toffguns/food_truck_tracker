@@ -25,7 +25,8 @@ class ContributorsController < ApplicationController
   # GET /contributors/1
   # GET /contributors/1.json
   def show
-    contributor = Contributor.find(params[:id])
+    @contributor = Contributor.find(params[:id])
+    redirect_to '/trucks'
   end
 
   # GET /contributors/new
