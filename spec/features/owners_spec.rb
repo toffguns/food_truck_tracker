@@ -17,9 +17,6 @@ RSpec.feature "Owners", type: :feature do
       And 'I submit the information' do
          click_button 'Sign up'
       end
-      Then 'I can click on the profile link' do
-        click_link 'Profile'
-      end
       And 'I can see my email address' do
         expect(page).to have_content "food01@gmail.com"
       end

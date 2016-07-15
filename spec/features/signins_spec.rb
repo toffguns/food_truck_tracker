@@ -17,7 +17,7 @@ RSpec.feature 'Signins', type: :feature do
       And 'I submit the information' do
          click_button 'Log in'
       end
-      Then 'I will be redirect to the landing page' do
+      Then 'I will be redirect to the trucks listing page' do
         visit '/'
       end
     end
