@@ -17,6 +17,7 @@ class TimeAndPlacesController < ApplicationController
   # GET /time_and_places/new
   def new
     @time_and_place = TimeAndPlace.new
+    @time_and_place.truck = Truck.find(params[:truck_id])
   end
 
   # GET /time_and_places/1/edit
@@ -45,6 +46,7 @@ class TimeAndPlacesController < ApplicationController
   # PATCH/PUT /time_and_places/1
   # PATCH/PUT /time_and_places/1.json
   def update
+    
     respond_to do |format|
       if @time_and_place.update(time_and_place_params)
         format.html { redirect_to @time_and_place, notice: 'Time and place was successfully updated.' }
