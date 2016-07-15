@@ -38,7 +38,8 @@
       </thead>
 
       <tbody>
-        <% @truck.time_and_places.each do |time_and_place| %>
+        <% @trucks_sorted_by_time = @truck.time_and_places.sort {|a,b| a.start_time <=> b.start_time } %>
+        <% @trucks_sorted_by_time.each do |time_and_place| %>
           <% if !time_and_place.end_time.past? %>
             <tr>
               <td><%= time_and_place.start_time %></td>
