@@ -41,6 +41,24 @@ footer {
   }
 }
 
+#largebutton {
+  padding-top: 15px;
+  max-width: 80%;
+  margin: auto;
+
+}
+
+a {
+  text-decoration: none;
+}
+
+.centered-div {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+
 #map-title {
   padding: 10px;
   color: white;

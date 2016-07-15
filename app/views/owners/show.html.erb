@@ -1,6 +1,3 @@
-
-
-
 <div class="page-header">
   <%= link_to owners_path, class: 'btn btn-default' do %>
     <span class="glyphicon glyphicon-list-alt"></span>
@@ -13,7 +10,7 @@
   <h1><%= @owner.email %></h1>
 </div>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Name</th>
@@ -29,18 +26,18 @@
         <td><%= truck.name %></td>
         <td><%= truck.cuisine %></td>
         <td><%= truck.menu %></td>
-        <td><%= link_to 'Show', truck %></td>
+        <td><%= link_to 'View Truck', truck, class: "btn btn-default" %></td>
         <% if truck.owner == current_owner %>
-          <td><%= link_to 'Edit', edit_truck_path(truck) %></td>
-          <td><%= link_to 'Destroy', truck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <td><%= link_to 'New Time And Place', new_time_and_place_path() + "?truck_id=" + truck.id.to_s %></td>
+          <td><%= link_to 'Edit Truck Info', edit_truck_path(truck), class: " btn btn-default" %></td>
+          <td><%= link_to 'Remove Truck', truck, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
+          <td><%= link_to 'Create a New Location', new_time_and_place_path() + "?truck_id=" + truck.id.to_s, class: "btn btn-default" %></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <%= render '/trucks/form' %>
+
 
 <dl class="dl-horizontal">
 </dl>

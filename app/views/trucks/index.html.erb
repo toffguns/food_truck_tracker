@@ -2,7 +2,7 @@
 
 <h1>Listing Trucks</h1>
 
-<table>
+<table class='table table-responsive'>
   <thead>
     <tr>
       <th>Image</th>
@@ -21,6 +21,9 @@
         <td><%= link_to truck.name, truck %></td>
         <td><%= truck.cuisine %></td>
         <td><%= truck.menu %></td>
+
+        <td><%= link_to 'View Truck', truck, class:'btn btn-default' %></td>
+
         <td><% @reviews = Review.where(truck_id: truck.id) %>
           <% if @reviews.blank? %>
             <% @avg_review = 0 %>
@@ -29,9 +32,10 @@
           <% end %>
           <div class="star-rating" data-score= <%= @avg_review %> ></div>
         </td>
+
         <% if truck.owner == current_owner %>
-          <td><%= link_to 'Edit', edit_truck_path(truck) %></td>
-          <td><%= link_to 'Destroy', truck, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Edit Truck Info', edit_truck_path(truck), class:'btn btn-default' %></td>
+          <td><%= link_to 'Remove Truck', truck, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default' %></td>
         <% end %>
       </tr>
     <% end %>
@@ -43,7 +47,7 @@
 
 
 <% if !current_owner.nil? %>
-  <%= link_to 'New Truck', new_truck_path %>
+  <%= link_to ' Create a New Truck', new_truck_path, class:'btn btn-default' %>
 <% end %>
 
 <script>

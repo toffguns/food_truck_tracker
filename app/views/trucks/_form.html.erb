@@ -1,4 +1,5 @@
-<%= form_for @truck, html: { multipart: true } do |f| %>
+<div class='centered-div'>
+  <%= form_for @truck, html: { multipart: true } do |f| %>
   <% if @truck.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@truck.errors.count, "error") %> prohibited this truck from being saved:</h2>
@@ -13,7 +14,7 @@
 
   <%= f.hidden_field(:owner_id, value: current_owner.id) %>
 
-  <div class="field">
+  <div class="field form-control-file">
     <%= f.label :image %><br>
     <%= f.file_field :image %>
   </div>
@@ -31,6 +32,7 @@
     <%= f.text_area :menu  %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>
+</div>
