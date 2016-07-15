@@ -3,6 +3,19 @@
 
 $gray-medium-light: #eaeaea;
 
+
+
+#logo1 {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto
+}
+#title {
+  color: white;
+  text-align: center;
+  padding-top: 20px;
+  text-shadow: black 0em 0.1em 0.1em;
+}
 /* Footer */
 
 footer {
@@ -26,4 +39,9 @@ footer {
       margin-right: 10px;
     }
   }
+}
+
+#map-title {
+  padding: 10px;
+  color: white;
 }
