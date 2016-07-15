@@ -24,3 +24,9 @@ ul.hmenu li {
 #trucks-link {
   font-size: 18px;
 }
+.infowindow_link {
+  font-size: 12px;
+}
+.infowindow_truck_name {
+  font-size: 20px;
+}
