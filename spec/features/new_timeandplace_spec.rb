@@ -27,6 +27,8 @@ RSpec.feature "TimeAndPlace", type: :feature do
         click_link 'New Time And Place'
       end
       And 'I create a new time and place for my truck' do
+        select '2018', from: 'time_and_place_start_time_1i'
+        select '2019', from: 'time_and_place_end_time_1i'
         fill_in 'Street address', with: '3803 Ray St.'
         fill_in 'City', with: "San Diego"
         fill_in 'Zip code', with: "92104"
@@ -50,6 +52,23 @@ RSpec.feature "TimeAndPlace", type: :feature do
       end
       Then 'I can see the changes made' do
         expect(page).to have_content '92105'
+      end
+      And 'I go to my profile page' do
+        click_link 'Profile'
+      end
+      Then 'I can click on the new time and place link' do
+        click_link 'New Time And Place'
+      end
+      And 'I create a new time and place for my truck' do
+        select '2014', from: 'time_and_place_start_time_1i'
+        select '2015', from: 'time_and_place_end_time_1i'
+        fill_in 'Street address', with: '3046 Vesuvia Way'
+        fill_in 'City', with: "San Diego"
+        fill_in 'Zip code', with: "92139"
+        fill_in 'State', with: "CA"
+        click_button 'Create Time and place'
+        expect(page).to have_content '3803 Ray St.'
+        expect(page).to_not have_content '3046 Vesuvia Way'
       end
     end
   end
