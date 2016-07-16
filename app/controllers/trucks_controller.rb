@@ -11,7 +11,14 @@ class TrucksController < ApplicationController
   # GET /trucks/1
   # GET /trucks/1.json
   def show
-    @time_and_place = TimeAndPlace.new
+    @reviews = Review.where(truck_id: @truck)
+    @review = Review.new
+
+    if @reviews.blank?
+      @avg_review = 0
+    else
+      @avg_review = @reviews.average(:rating).round(2)
+    end
   end
 
   # GET /trucks/new
@@ -21,7 +28,6 @@ class TrucksController < ApplicationController
 
   # GET /trucks/1/edit
   def edit
-    @time_and_place = TimeAndPlace.new
   end
 
   # POST /trucks
@@ -64,6 +70,7 @@ class TrucksController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_truck
@@ -72,6 +79,7 @@ class TrucksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def truck_params
-      params.require(:truck).permit(:name, :cuisine, :menu, :owner_id, :image)
+      params.require(:truck).permit(:name, :cuisine, :menu, :owner_id, :image, :comment, :rating)
     end
+
 end

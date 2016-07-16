@@ -1,3 +1,4 @@
+<h2>For Truck: <%= @time_and_place.truck.name %> </h2>
 <%= form_for(@time_and_place) do |f| %>
   <% if @time_and_place.errors.any? %>
     <div id="error_explanation">
@@ -13,11 +14,11 @@
 
   <div class="field">
     <%= f.label :start_time %><br>
-    <%= f.time_select :start_time %>
+    <%= f.datetime_select :start_time %>
   </div>
   <div class="field">
     <%= f.label :end_time %><br>
-    <%= f.time_select :end_time %>
+    <%= f.datetime_select :end_time %>
   </div>
   <div class="field">
     <%= f.label :street_address %><br>
@@ -36,8 +37,7 @@
     <%= f.text_field :zip_code %>
   </div>
   <div class="field">
-    <%= f.label :truck_id %><br>
-    <%= f.text_field :truck_id %>
+    <input type="hidden" name="time_and_place[truck_id]" value="<%= @time_and_place.truck.id %>"/>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Crumbs</title>
+  <title>Food Truck Tracker</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -23,6 +24,14 @@
   <link href='https://fonts.googleapis.com/css?family=Hind:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=1741640079450458";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
@@ -32,12 +41,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "CRUMBZzzZzz", "/", class: "navbar-brand" %>
+        <%= link_to "Food Truck Trucker", "/", class: "navbar-brand" %>
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="/">Home</a></li>
-          <li><a href="/owners/sign_up">Register</a></li>
+          <li><a href="/">Home</a></li>
+          <li><a href="/trucks">Truck List</a></li>
+          <% if current_owner.nil? %>
+            <li><a href="/owners/sign_up">Register</a></li>
+          <% end %>
           <% if owner_signed_in? %>
             <li>
               <%= link_to('Logout', destroy_owner_session_path, :method => :delete) %>
@@ -62,15 +74,12 @@
       </div>
     </div>
   </nav>
+  <%= render partial: "layouts/flash_messages", flash: flash %>
   <div class="container">
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, class: "alert alert-#{ name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do %>
-        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <%= msg %>
-      <% end %>
-    <% end %>
+    <div class="row">
+    <%= yield %>
+    </div>
   </div>
-  <%= yield %>
   <%= render 'layouts/footer' %>
 </body>
 </html>

@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   devise_for :owners
 
   resources :owners
-  resources :trucks
+  resources :trucks do
+    resources :reviews, except: [:show, :index]
+  end
   resources :time_and_places
   resources :contributors
 
@@ -14,7 +16,7 @@ Rails.application.routes.draw do
   get 'contributors/check_auth'
   get 'landing_page/map_location'
   get 'landing_page/search'
-
+  get 'landing_page/get_markers_by_address'
 
   devise_scope :owner do
   get '/login' => 'devise/sessions#new'

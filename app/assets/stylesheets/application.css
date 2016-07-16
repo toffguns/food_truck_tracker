@@ -38,10 +38,17 @@
 }
 
 table {
-  width: 80%;
-  margin: 100px;
+  width: auto;
+  margin: auto;
+  overflow-x: auto;
 }
 
 #profile-link {
   float: right;
+}
+
+body {
+  background-image: url(foodtruck4.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }

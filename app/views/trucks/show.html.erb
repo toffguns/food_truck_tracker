@@ -1,22 +1,88 @@
-<p id="notice"><%= notice %></p>
 
-<%= link_to image_tag(@truck.image.url(:large)), @truck.image.url %>
-<h1>
-  <%= @truck.name %>
-</h1>
+<div class="row">
+  <div class="col-sm-3">
+    <%= link_to image_tag(@truck.image.url(:large)), @truck.image.url %>
+  </div>
+  <div class="col-sm-9">
+    <h1>
+      <%= @truck.name %>
+    </h1>
+    <p>
+      <strong>Cuisine:</strong>
+      <%= @truck.cuisine %>
+    </p>
 
-<p>
-  <strong>Cuisine:</strong>
-  <%= @truck.cuisine %>
-</p>
+    <p>
+      <strong>Menu:</strong>
+      <%= @truck.menu %>
+    </p>
+    <div class="star-rating" data-score= <%= @avg_review %> ></div>
+    <em><%= "#{@reviews.length} reviews" %></em>
+  </div>
+</div>
 
-<p>
-  <strong>Menu:</strong>
-  <%= @truck.menu %>
-</p>
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+          <th>Start time</th>
+          <th>End time</th>
+          <th>Street address</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Zip code</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-<% if @truck.owner == current_owner %>
-  <%= link_to 'Edit', edit_truck_path(@truck) %> |
+      <tbody>
+
+        <% @trucks_sorted_by_time = @truck.time_and_places.sort {|a,b| a.start_time <=> b.start_time } %>
+        <% @trucks_sorted_by_time.each do |time_and_place| %>
+          <% if !time_and_place.end_time.past? %>
+            <tr>
+              <td><%= time_and_place.start_time %></td>
+              <td><%= time_and_place.end_time %></td>
+              <td><%= time_and_place.street_address %></td>
+              <td><%= time_and_place.city %></td>
+              <td><%= time_and_place.state %></td>
+              <td><%= time_and_place.zip_code %></td>
+              <% if @truck.owner == current_owner %>
+                <td>
+                  <%= link_to 'Edit', edit_time_and_place_path(time_and_place), class:'btn btn-default' %>
+                </td>
+                <td><%= link_to 'Destroy', time_and_place, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default' %></td>
+              <% end %>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+
+
+<% if contributor_signed_in? %>
+
+  <%= render 'reviews/form' %>
+  </div>
+  <div class="fb-comments" expr:href='data:post.url' data-numposts="5"></div>
+<% else %>
+  <a href="/login"><h3> Write a Review or Comment </h3></a>
 <% end %>
 
-<%= link_to 'Back', trucks_path %>
+
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
+
+<script>
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+</script>

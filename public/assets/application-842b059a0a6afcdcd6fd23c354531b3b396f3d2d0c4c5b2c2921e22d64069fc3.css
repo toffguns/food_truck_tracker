@@ -5474,7 +5474,7 @@ tbody.collapse.in {
 .navbar {
   position: relative;
   min-height: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   border: 1px solid transparent;
 }
 /* line 14, /Users/learn/.rvm/gems/ruby-2.2.2/gems/bootstrap-generators-3.3.4/vendor/twitter/bootstrap/sass/bootstrap/mixins/_clearfix.scss */
@@ -8621,7 +8621,7 @@ a {
 }
 /* line 24, /Users/learn/Desktop/food_truck_tracker/app/assets/stylesheets/scaffolds.scss */
 a:visited {
-  color: #666;
+  color: #eee;
 }
 /* line 28, /Users/learn/Desktop/food_truck_tracker/app/assets/stylesheets/scaffolds.scss */
 a:hover {
@@ -8686,4 +8686,3 @@ div.field, div.actions {
 
 
  */
-

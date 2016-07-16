@@ -12,7 +12,7 @@ RSpec.feature "Searches", type: :feature do
         click_button 'Sign up'
       end
       Then 'I can click on the list of food trucks link' do
-        click_link 'List of Food Trucks'
+        click_link 'Truck List'
       end
       And 'I can click on the New truck link' do
         click_link 'New Truck'
@@ -29,7 +29,7 @@ RSpec.feature "Searches", type: :feature do
       end
       Then 'when I go to the shrimp blimp edit page' do
         id = (Truck.where(name: "shrimp blimp"))[0].id
-        visit ('/trucks/' + id.to_s + '/edit')
+        visit ('/time_and_places/new?truck_id=' + id.to_s)
       end
       And 'I fill in the timeandplace fields' do
         select '2017', from: 'time_and_place_start_time_1i'
@@ -42,7 +42,7 @@ RSpec.feature "Searches", type: :feature do
         visit '/'
       end
       Then 'I can click on the list of food trucks link' do
-        click_link 'List of Food Trucks'
+        click_link 'Truck List'
       end
       And 'I can click on the New truck link' do
         click_link 'New Truck'
@@ -59,7 +59,7 @@ RSpec.feature "Searches", type: :feature do
       end
       Then 'when I go to the Rodney Riguez edit page' do
         id = (Truck.where(name: "Rodney Riguez"))[0].id
-        visit ('/trucks/' + id.to_s + '/edit')
+        visit ('/time_and_places/new?truck_id=' + id.to_s)
       end
       And 'I fill in the timeandplace fields' do
         select '2019', from: 'time_and_place_end_time_1i'
@@ -78,10 +78,12 @@ RSpec.feature "Searches", type: :feature do
       And 'I can click on the Search button' do
         click_button 'search_button'
       end
-      # And 'I should see Rodney Riguez on the page' do
-      #   expect(page).to have_content "Rodney Riguez"
-      #   expect(page).to_not have_content "shrimp blimp"
-      # end
+      Then 'I can search by address' do
+        fill_in 'address_search', with: '3803 Ray St.'
+      end
+      And 'I can click on the Address Search button' do
+        click_button 'recenter_map_button'
+      end
     end
   end
 end

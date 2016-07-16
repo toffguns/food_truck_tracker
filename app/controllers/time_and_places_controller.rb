@@ -17,6 +17,7 @@ class TimeAndPlacesController < ApplicationController
   # GET /time_and_places/new
   def new
     @time_and_place = TimeAndPlace.new
+    @time_and_place.truck = Truck.find(params[:truck_id])
   end
 
   # GET /time_and_places/1/edit
@@ -26,7 +27,6 @@ class TimeAndPlacesController < ApplicationController
   # POST /time_and_places
   # POST /time_and_places.json
   def create
-
     @time_and_place = TimeAndPlace.new(time_and_place_params)
 
     # create path for page to be rendered if save is successful
@@ -46,9 +46,10 @@ class TimeAndPlacesController < ApplicationController
   # PATCH/PUT /time_and_places/1
   # PATCH/PUT /time_and_places/1.json
   def update
+    new_path = '/trucks/' + @time_and_place.truck_id.to_s
     respond_to do |format|
       if @time_and_place.update(time_and_place_params)
-        format.html { redirect_to @time_and_place, notice: 'Time and place was successfully updated.' }
+        format.html { redirect_to new_path, notice: 'Time and place was successfully updated.' }
         format.json { render :show, status: :ok, location: @time_and_place }
       else
         format.html { render :edit }
@@ -60,9 +61,10 @@ class TimeAndPlacesController < ApplicationController
   # DELETE /time_and_places/1
   # DELETE /time_and_places/1.json
   def destroy
+    @truck = Truck.find(@time_and_place.truck_id)
     @time_and_place.destroy
     respond_to do |format|
-      format.html { redirect_to time_and_places_url, notice: 'Time and place was successfully destroyed.' }
+      format.html { redirect_to @truck, notice: 'Time and place was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
