@@ -275,7 +275,7 @@ th {
   /* line 18, /Users/learn/.rvm/gems/ruby-2.2.2/gems/bootstrap-generators-3.3.4/vendor/twitter/bootstrap/sass/bootstrap/_print.scss */
   a,
   a:visited {
-    text-decoration: underline;
+    text-decoration: none;
   }
 
   /* line 23, /Users/learn/.rvm/gems/ruby-2.2.2/gems/bootstrap-generators-3.3.4/vendor/twitter/bootstrap/sass/bootstrap/_print.scss */
@@ -1745,7 +1745,7 @@ a {
 /* line 52, /Users/learn/.rvm/gems/ruby-2.2.2/gems/bootstrap-generators-3.3.4/vendor/twitter/bootstrap/sass/bootstrap/_scaffolding.scss */
 a:hover, a:focus {
   color: #23527c;
-  text-decoration: underline;
+  text-decoration: none;
 }
 /* line 58, /Users/learn/.rvm/gems/ruby-2.2.2/gems/bootstrap-generators-3.3.4/vendor/twitter/bootstrap/sass/bootstrap/_scaffolding.scss */
 a:focus {
@@ -4627,7 +4627,7 @@ select[multiple].input-lg,
 /* line 107, /Users/learn/.rvm/gems/ruby-2.2.2/gems/bootstrap-generators-3.3.4/vendor/twitter/bootstrap/sass/bootstrap/_buttons.scss */
 .btn-link:hover, .btn-link:focus {
   color: #23527c;
-  text-decoration: underline;
+  text-decoration: none;
   background-color: transparent;
 }
 /* line 115, /Users/learn/.rvm/gems/ruby-2.2.2/gems/bootstrap-generators-3.3.4/vendor/twitter/bootstrap/sass/bootstrap/_buttons.scss */
