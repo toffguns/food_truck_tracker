@@ -25,6 +25,8 @@
 </head>
 
 <!-- start of body -->
+<div id='wrap'>
+  <div class='container'>
 <body class="<%= params[:controller]%>">
   <div id="fb-root"></div>
   <script>(function(d, s, id) {
@@ -82,6 +84,9 @@
     <%= yield %>
     </div>
   </div>
+
   <%= render 'layouts/footer' %>
 </body>
+</div>
+</div>
 </html>
