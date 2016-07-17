@@ -12,7 +12,6 @@
   <h1 class="pg-title">Information for <%= @truck.name %></h1>
 </div>
 
-
 <div class="row">
   <div class="col-sm-3">
     <%= link_to image_tag(@truck.image.url(:large)), @truck.image.url %>
@@ -33,43 +32,48 @@
   </div>
 </div>
 
-    <table class="table table-responsive">
-      <thead>
-        <tr>
-          <th>Start time</th>
-          <th>End time</th>
-          <th>Street address</th>
-          <th>City</th>
-          <th>State</th>
-          <th>Zip code</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
+<div>
+  <h1>Truck Locations and Times</h1>
+  <table class="table table-responsive">
+    <thead>
+      <tr>
+        <th>Start time</th>
+        <th>End time</th>
+        <th>Street address</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Zip code</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-      <tbody>
+    <tbody>
 
-        <% @trucks_sorted_by_time = @truck.time_and_places.sort {|a,b| a.start_time <=> b.start_time } %>
-        <% @trucks_sorted_by_time.each do |time_and_place| %>
-          <% if !time_and_place.end_time.past? %>
-            <tr>
-              <td><%= time_and_place.start_time %></td>
-              <td><%= time_and_place.end_time %></td>
-              <td><%= time_and_place.street_address %></td>
-              <td><%= time_and_place.city %></td>
-              <td><%= time_and_place.state %></td>
-              <td><%= time_and_place.zip_code %></td>
-              <% if @truck.owner == current_owner %>
-                <td>
-                  <%= link_to 'Edit', edit_time_and_place_path(time_and_place), class:'btn btn-primary' %>
-                </td>
-                <td><%= link_to 'Delete', time_and_place, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default' %></td>
-              <% end %>
-            </tr>
-          <% end %>
+      <% @trucks_sorted_by_time = @truck.time_and_places.sort {|a,b| a.start_time <=> b.start_time } %>
+      <% @trucks_sorted_by_time.each do |time_and_place| %>
+        <% if !time_and_place.end_time.past? %>
+          <tr>
+            <td><%= time_and_place.start_time %></td>
+            <td><%= time_and_place.end_time %></td>
+            <td><%= time_and_place.street_address %></td>
+            <td><%= time_and_place.city %></td>
+            <td><%= time_and_place.state %></td>
+            <td><%= time_and_place.zip_code %></td>
+            <% if @truck.owner == current_owner %>
+              <td>
+                <%= link_to 'Edit', edit_time_and_place_path(time_and_place), class:'btn btn-primary' %>
+              </td>
+              <td><%= link_to 'Delete', time_and_place, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default' %></td>
+            <% end %>
+          </tr>
         <% end %>
-      </tbody>
-    </table>
-
+      <% end %>
+      <% if @trucks_sorted_by_time.last.end_time.past? || @trucks.time_and_places.nil? %>
+        <td colspan="7"><em>There are currently no locations for this truck.</em></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <% if contributor_signed_in? %>
 

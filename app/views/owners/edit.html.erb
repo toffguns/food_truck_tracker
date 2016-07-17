@@ -1,12 +1,4 @@
 <div class="page-header">
-    <%= link_to owners_path, class: 'btn btn-default' do %>
-      <span class="glyphicon glyphicon-list-alt"></span>
-      Back
-    <% end %>
-    <%= link_to @owner, class: 'btn btn-primary' do %>
-      <span class="glyphicon glyphicon-info-sign"></span>
-      Show
-    <% end %>
     <h1 class="pg-title">Update account information</h1>
 </div>
 
@@ -42,10 +34,10 @@
       <%= f.password_field :current_password, autocomplete: "off", class: "form-field" %>
     </div>
 
-    <div class="actions">
-      <%= f.submit "Update", class: "btn btn-success" %>
+    <div class="actions field">
+      <%= f.submit "Update", class: "btn btn-primary" %>
     </div>
     <h3>Cancel my account</h3>
-      <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %></p>
+      <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger field" %></p>
   <% end %>
 </div>

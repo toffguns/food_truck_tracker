@@ -32,6 +32,10 @@
        }
  }
 
+body {
+  background-color: #FCF6CF;
+}
+
 #map-container {
   display: flex;
   justify-content: center;
@@ -79,7 +83,7 @@ table {
 }
 
 .form-field {
-  width: 100%;%;
+  width: 75%;%;
 }
 
 .form-contents {
