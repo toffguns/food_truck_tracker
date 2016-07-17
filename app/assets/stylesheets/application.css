@@ -55,6 +55,14 @@
   padding-bottom: 30px;
 }
 
+#select-container {
+  text-align: right;
+}
+
+#search-select {
+  width: 75%;
+}
+
 table {
   width: auto;
   margin: auto;

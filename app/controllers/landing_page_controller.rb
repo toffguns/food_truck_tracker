@@ -29,6 +29,8 @@ class LandingPageController < ApplicationController
         end
       end
     end
+
+    @time_and_places = TimeAndPlace.where("end_time > ?", DateTime.now).where("start_time < ?", DateTime.now)
     @hash = Gmaps4rails.build_markers(@time_and_places) do |time_and_place, marker|
      marker.lat time_and_place.latitude
      marker.lng time_and_place.longitude
