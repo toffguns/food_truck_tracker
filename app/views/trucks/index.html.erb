@@ -22,16 +22,18 @@
         <td><%= truck.cuisine %></td>
         <td><%= truck.menu %></td>
 
-        <td><%= link_to 'View Truck', truck, class:'btn btn-default' %></td>
-
         <td><% @reviews = Review.where(truck_id: truck.id) %>
           <% if @reviews.blank? %>
-            <% @avg_review = 0 %>
+          <% @avg_review = 0 %>
           <% else %>
-            <% @avg_review = @reviews.average(:rating).round(2) %>
+          <% @avg_review = @reviews.average(:rating).round(2) %>
           <% end %>
           <div class="star-rating" data-score= <%= @avg_review %> ></div>
         </td>
+
+        
+        <td><%= link_to 'View Truck', truck, class:'btn btn-default' %></td>
+
 
         <% if truck.owner == current_owner %>
           <td><%= link_to 'Edit Truck Info', edit_truck_path(truck), class:'btn btn-default' %></td>

@@ -5294,6 +5294,7 @@ tbody.collapse.in {
 .nav > li {
   position: relative;
   display: block;
+  padding-top: 10px;
 }
 /* line 19, /Users/learn/.rvm/gems/ruby-2.2.2/gems/bootstrap-generators-3.3.4/vendor/twitter/bootstrap/sass/bootstrap/_navs.scss */
 .nav > li > a {
@@ -5366,10 +5367,13 @@ tbody.collapse.in {
 /* line 118, /Users/learn/.rvm/gems/ruby-2.2.2/gems/bootstrap-generators-3.3.4/vendor/twitter/bootstrap/sass/bootstrap/_navs.scss */
 .nav-pills > li {
   float: left;
+  padding-top: 10px;
+  margin-top: 10px;
 }
 /* line 122, /Users/learn/.rvm/gems/ruby-2.2.2/gems/bootstrap-generators-3.3.4/vendor/twitter/bootstrap/sass/bootstrap/_navs.scss */
 .nav-pills > li > a {
   border-radius: 4px;
+  /*padding-top: 20px;*/
 }
 /* line 125, /Users/learn/.rvm/gems/ruby-2.2.2/gems/bootstrap-generators-3.3.4/vendor/twitter/bootstrap/sass/bootstrap/_navs.scss */
 .nav-pills > li + li {
