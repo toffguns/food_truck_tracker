@@ -1,12 +1,24 @@
+<div class="page-header">
+  <% if current_owner == @truck.owner %>
+    <%= link_to owner_path, class: 'btn btn-default' do %>
+      <span class="glyphicon glyphicon-list-alt"></span>
+      Back
+    <% end %>
+    <%= link_to edit_truck_path(@truck), class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+      Edit Details
+    <% end %>
+  <% end %>
+  <h1 class="pg-title">Information for <%= @truck.name %></h1>
+</div>
+
 
 <div class="row">
   <div class="col-sm-3">
     <%= link_to image_tag(@truck.image.url(:large)), @truck.image.url %>
   </div>
   <div class="col-sm-9">
-    <h1>
-      <%= @truck.name %>
-    </h1>
+
     <p>
       <strong>Cuisine:</strong>
       <%= @truck.cuisine %>
@@ -48,9 +60,9 @@
               <td><%= time_and_place.zip_code %></td>
               <% if @truck.owner == current_owner %>
                 <td>
-                  <%= link_to 'Edit', edit_time_and_place_path(time_and_place), class:'btn btn-default' %>
+                  <%= link_to 'Edit', edit_time_and_place_path(time_and_place), class:'btn btn-primary' %>
                 </td>
-                <td><%= link_to 'Destroy', time_and_place, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default' %></td>
+                <td><%= link_to 'Delete', time_and_place, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default' %></td>
               <% end %>
             </tr>
           <% end %>

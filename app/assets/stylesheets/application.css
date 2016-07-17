@@ -41,18 +41,23 @@
 
 #sign-up-container {
   text-align: center;
-  border-style: solid;
-  border-width: 1px;
+  margin-top: 80px;
+  padding-bottom: 30px;
+}
+
+#facebook-container {
+  text-align: center;
   margin-top: 80px;
   padding-bottom: 30px;
 }
 
 #log-in-container {
   text-align: center;
-  border-style: solid;
-  border-width: 1px;
   margin-top: 80px;
   padding-bottom: 30px;
+  border-left-color: grey;
+  border-left-size: 1px;
+  border-left-style: solid;
 }
 
 #select-container {
@@ -71,4 +76,18 @@ table {
 
 #profile-link {
   float: right;
+}
+
+.form-field {
+  width: 100%;%;
+}
+
+.form-contents {
+  text-align: left;
+  padding-left: 20px;
+
+}
+
+.field {
+  margin: 15px;
 }

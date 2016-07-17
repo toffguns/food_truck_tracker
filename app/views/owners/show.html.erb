@@ -7,7 +7,7 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Edit Owner
   <% end %>
-  <h1><%= @owner.email %></h1>
+  <h1 class="pg-title">Logged in as <%= @owner.email %></h1>
 </div>
 
 <table class="table">
@@ -26,18 +26,16 @@
         <td><%= truck.name %></td>
         <td><%= truck.cuisine %></td>
         <td><%= truck.menu %></td>
-        <td><%= link_to 'View Truck', truck, class: "btn btn-default" %></td>
+        <td><%= link_to 'View Truck', truck, class: "btn btn-primary" %></td>
         <% if truck.owner == current_owner %>
           <td><%= link_to 'Edit Truck Info', edit_truck_path(truck), class: " btn btn-default" %></td>
-          <td><%= link_to 'Remove Truck', truck, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
+          <td><%= link_to 'Remove Truck', truck, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
           <td><%= link_to 'Create a New Location', new_time_and_place_path() + "?truck_id=" + truck.id.to_s, class: "btn btn-default" %></td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<h1 class="pg-title">Create a New Truck</h1>
 <%= render '/trucks/form' %>
-
-
-<dl class="dl-horizontal">
-</dl>
