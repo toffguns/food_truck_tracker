@@ -2,9 +2,22 @@
 @import "bootstrap";
 
 $gray-medium-light: #eaeaea;
-
-
-
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 30px;
+  // background-color: #f5f5f5;
+}
 #logo1 {
   display: flex;
   margin-left: auto;
@@ -19,24 +32,26 @@ $gray-medium-light: #eaeaea;
 /* Footer */
 
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
-  // border-top: 1px solid $gray-medium-light;
-  color: #777;
+  // margin-top: 10px;
+  // padding-top: 0px;
+  // border-top: 0.5px solid $gray-medium-light;
+  color: gray;
   a {
-    color: #555;
+    color: gray;
   }
   small {
+    font-weight: bold;
     float: left;
-    margin-left: 10px
+    margin-left: 2px
   }
   ul {
     float: right;
     list-style: none;
     li {
+      font-weight: bold;
       float: left;
       margin-left: 15px;
-      margin-right: 10px;
+      margin-right: 80px;
     }
   }
 }
