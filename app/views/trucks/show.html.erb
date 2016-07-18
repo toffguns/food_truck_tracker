@@ -49,8 +49,8 @@
 
     <tbody>
 
-      <% @trucks_sorted_by_time = @truck.time_and_places.sort {|a,b| a.start_time <=> b.start_time } %>
-      <% @trucks_sorted_by_time.each do |time_and_place| %>
+      <% @time_and_places_sorted_by_time = @truck.time_and_places.sort {|a,b| a.start_time <=> b.start_time } %>
+      <% @time_and_places_sorted_by_time.each do |time_and_place| %>
         <% if !time_and_place.end_time.past? %>
           <tr>
             <td><%= time_and_place.start_time %></td>
@@ -63,25 +63,30 @@
               <td>
                 <%= link_to 'Edit', edit_time_and_place_path(time_and_place), class:'btn btn-primary' %>
               </td>
-              <td><%= link_to 'Delete', time_and_place, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default' %></td>
+              <td><%= link_to 'Remove', time_and_place, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %></td>
             <% end %>
           </tr>
         <% end %>
       <% end %>
-      <% if @trucks_sorted_by_time.last.end_time.past? || @trucks.time_and_places.nil? %>
+
+      <!-- If collection is empty, add a time and place from the past -->
+      <% if @time_and_places_sorted_by_time.length == 0 %>
+        <% @time_and_places_sorted_by_time << TimeAndPlace.new(end_time: DateTime.yesterday, start_time: DateTime.yesterday) %>
+      <% end %>
+
+      <% if @truck.time_and_places.nil? || @time_and_places_sorted_by_time.last.end_time.past? %>
         <td colspan="7"><em>There are currently no locations for this truck.</em></td>
       <% end %>
+
     </tbody>
   </table>
 </div>
 
 <% if contributor_signed_in? %>
-
   <%= render 'reviews/form' %>
-  </div>
   <div class="fb-comments" expr:href='data:post.url' data-numposts="5"></div>
 <% else %>
-  <a href="/login"><h3> Write a Review or Comment </h3></a>
+  <a href="/login"><h3>Write a Review or Comment</h3></a>
 <% end %>
 
 

@@ -8,7 +8,7 @@ RSpec.feature 'Signups', type: :feature do
         visit '/owners/sign_up'
       end
       Then 'I can see a sign up message' do
-        expect(page).to have_content'Sign up'
+        expect(page).to have_content 'Sign Up'
       end
       When 'I fill in email and password fields' do
         fill_in 'Email', with: 'food01@gmail.com'
@@ -16,9 +16,9 @@ RSpec.feature 'Signups', type: :feature do
         fill_in 'Password confirmation', with: 'federico'
       end
       And 'I submit the information' do
-         click_button 'Sign up'
+         click_button 'Sign Up'
       end
-      Then 'I will be redirect to the landing page' do
+      Then 'I will be redirected to the landing page' do
         visit '/'
       end
     end

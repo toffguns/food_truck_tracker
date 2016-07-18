@@ -30,7 +30,7 @@
         <% if truck.owner == current_owner %>
           <td><%= link_to 'Edit Truck Info', edit_truck_path(truck), class: " btn btn-default" %></td>
           <td><%= link_to 'Remove Truck', truck, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>
-          <td><%= link_to 'Create a New Location', new_time_and_place_path() + "?truck_id=" + truck.id.to_s, class: "btn btn-default" %></td>
+          <td><%= link_to 'Add a Location', new_time_and_place_path() + "?truck_id=" + truck.id.to_s, class: "btn btn-default" %></td>
         <% end %>
       </tr>
     <% end %>
