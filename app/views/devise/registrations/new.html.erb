@@ -5,11 +5,11 @@
     <h2>Have a Food Truck? Sign Up and Get on the Road!</h2>
     <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
-        <%= f.email_field :email, autofocus: true %>
-        <%= f.password_field :password, autocomplete: "off" %>
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        <%= f.email_field :email, autofocus: true, label: "Email*" %>
+        <%= f.password_field :password, autocomplete: "off", label: "Password (6 characters minimum)*" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", label: "Password Confirmation*" %>
         <%= f.submit "Sign Up"%>
     <% end %>
-
+    <h6> * Indicates a required field </h6>
   </div>
 </div>
