@@ -30,7 +30,7 @@ RSpec.feature 'Ownerrestrictions', type: :feature do
         visit '/owners/sign_up'
       end
       Then 'I can see a log in message' do
-        expect(page).to have_content'Sign up'
+        expect(page).to have_content'Have a Food Truck? Sign Up to Get on the Road!'
       end
       When 'I fill in email and password fields' do
         fill_in 'Email', with: 'food@gmail.com'

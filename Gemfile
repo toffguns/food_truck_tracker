@@ -37,7 +37,7 @@ gem 'textacular', '~>3.0'
 
 gem 'paperclip'
 
-gem 'acts_as_commentable'
+gem 'bootstrap_form'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
