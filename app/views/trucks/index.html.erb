@@ -16,12 +16,12 @@
       <th>City</th>
       <th>State</th>
       <th>Zip code</th>
-
     </tr>
   </thead>
 
   <tbody>
-    <% if !@time_and_places.nil? %>
+
+    <% if !(@time_and_places.length == 0) %>
       <% @time_and_places.each do |time_and_place| %>
         <tr>
           <td><%= link_to image_tag(time_and_place.truck.image.url(:small)), time_and_place.truck %></td>
@@ -46,7 +46,14 @@
           <td><%= time_and_place.zip_code %></td>
         </tr>
       <% end %>
+    <% else %>
+      <tr>
+        <td colspan="10">
+          <em>Currently there are no food trucks out. Try again later.</em>
+        </td>
+      </tr>
     <% end %>
+
   </tbody>
 </table>
 
