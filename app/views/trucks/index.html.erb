@@ -5,7 +5,7 @@
 <table class='table table-responsive'>
   <thead>
     <tr>
-      <th>Image</th>
+      <th></th>
       <th>Name</th>
       <th>Cuisine</th>
       <th>Menu</th>
@@ -31,12 +31,14 @@
           <div class="star-rating" data-score= <%= @avg_review %> ></div>
         </td>
 
-
-        <td><%= link_to 'View Truck', truck, class:'btn btn-primary' %></td>
+        <% if contributor_signed_in? %>
+          <td><%= link_to 'Leave a Review', truck, class:'btn btn-primary' %></td>
+        <% end %>
 
 
         <% if truck.owner == current_owner %>
           <td><%= link_to 'Edit Truck Info', edit_truck_path(truck), class:'btn btn-primary' %></td>
+          <td><%= link_to 'Add a Location', new_time_and_place_path() + "?truck_id=" + truck.id.to_s, class: "btn btn-primary" %></td>
           <td><%= link_to 'Remove Truck', truck, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %></td>
         <% end %>
       </tr>

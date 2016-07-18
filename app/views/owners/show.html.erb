@@ -9,9 +9,11 @@
 <table class="table">
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th>Cuisine</th>
       <th>Menu</th>
+      <th>Rating</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,10 +21,18 @@
   <tbody>
     <% @owner.trucks.each do |truck| %>
       <tr>
-        <td><%= truck.name %></td>
+        <td><%= link_to image_tag(truck.image.url(:small)), truck %></td>
+        <td><%= link_to truck.name, truck %></td>
         <td><%= truck.cuisine %></td>
         <td><%= truck.menu %></td>
-        <td><%= link_to 'View Truck', truck, class: "btn btn-primary" %></td>
+        <td><% @reviews = Review.where(truck_id: truck.id) %>
+            <% if @reviews.blank? %>
+              <% @avg_review = 0 %>
+            <% else %>
+              <% @avg_review = @reviews.average(:rating).round(2) %>
+            <% end %>
+          <div class="star-rating" data-score= <%= @avg_review %> ></div>
+        </td>      
         <% if truck.owner == current_owner %>
           <td><%= link_to 'Edit Truck Info', edit_truck_path(truck), class: " btn btn-primary" %></td>
           <td><%= link_to 'Add a Location', new_time_and_place_path() + "?truck_id=" + truck.id.to_s, class: "btn btn-primary" %></td>
@@ -39,3 +49,20 @@
 <% if current_owner.id == @owner.id %>
   <%= link_to ' Create a New Truck', new_truck_path, class:'btn btn-primary' %>
 <% end %>
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>
+
+<script>
+  $('#star-rating').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+</script>
