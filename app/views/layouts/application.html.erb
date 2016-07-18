@@ -50,7 +50,7 @@
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="/trucks">Truck List</a></li>
-          <% if current_owner.nil? %>
+          <% if show_register %>
             <li><a href="/owners/sign_up">Register</a></li>
           <% end %>
         </ul>
