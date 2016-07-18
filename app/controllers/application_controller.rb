@@ -7,7 +7,9 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource_or_scope)
     # current_owner
     # current_contributor
-    if session[:contributor_return_to] == "/landing_page/map_location" && contributor_signed_in?
+    if (session[:contributor_return_to] == "/landing_page/map_location" && contributor_signed_in?) ||
+        session[:contributor_return_to][0,36] == "/landing_page/get_markers_by_address" ||
+        session[:contributor_return_to][0,20] == "/landing_page/search"
       session[:contributor_return_to] = "/"
     elsif owner_signed_in?
       session[:owner_return_to] = "/owners/" + current_owner.id.to_s
