@@ -15,7 +15,7 @@ RSpec.feature "Owners", type: :feature do
         fill_in 'Password confirmation', with: 'federico'
       end
       And 'I submit the information' do
-         click_button 'Sign up'
+         click_button 'Sign Up'
       end
       And 'I can see my email address' do
         expect(page).to have_content "food01@gmail.com"
@@ -24,7 +24,7 @@ RSpec.feature "Owners", type: :feature do
         fill_in 'Name', with: 'Tasty Tacos'
         fill_in 'Cuisine', with: 'fish'
         fill_in 'Menu', with: 'barbacoa'
-        click_button 'Create Truck'
+        click_button 'Save Truck'
       end
       And 'I can go to my profile page' do
         click_link 'Profile'
@@ -40,17 +40,17 @@ RSpec.feature "Owners", type: :feature do
         click_button 'Update'
       end
       Then 'I can logout' do
-        click_link 'Logout'
+        click_link 'Log Out'
       end
       And 'click the login link' do
-        click_link 'Login'
+        click_link 'Log In'
       end
       And 'enter the new account information' do
         fill_in 'Email', with: 'asdf@asdf.com'
         fill_in 'Password', with: 'qwerqwer'
       end
       And 'click the login button' do
-        click_button 'Log in'
+        click_button 'Log In'
         expect(page).to have_content 'Signed in successfully'
       end
     end

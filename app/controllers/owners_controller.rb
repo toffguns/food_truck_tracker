@@ -74,7 +74,7 @@ class OwnersController < ApplicationController
   def destroy
     @owner.destroy
     respond_to do |format|
-      format.html { redirect_to owners_url, notice: 'Owner was successfully destroyed.' }
+      format.html { redirect_to owners_url, notice: 'Owner was successfully removed.' }
       format.json { head :no_content }
     end
   end

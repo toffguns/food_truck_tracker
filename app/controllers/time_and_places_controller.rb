@@ -34,7 +34,7 @@ class TimeAndPlacesController < ApplicationController
 
     respond_to do |format|
       if @time_and_place.save
-        format.html { redirect_to new_path, notice: 'Time and place was successfully created.' }
+        format.html { redirect_to new_path, notice: 'Location was successfully saved.' }
         format.json { render :show, status: :created, location: @time_and_place }
       else
         format.html { render :new }
@@ -49,7 +49,7 @@ class TimeAndPlacesController < ApplicationController
     new_path = '/trucks/' + @time_and_place.truck_id.to_s
     respond_to do |format|
       if @time_and_place.update(time_and_place_params)
-        format.html { redirect_to new_path, notice: 'Time and place was successfully updated.' }
+        format.html { redirect_to new_path, notice: 'Location was successfully updated.' }
         format.json { render :show, status: :ok, location: @time_and_place }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class TimeAndPlacesController < ApplicationController
     @truck = Truck.find(@time_and_place.truck_id)
     @time_and_place.destroy
     respond_to do |format|
-      format.html { redirect_to @truck, notice: 'Time and place was successfully destroyed.' }
+      format.html { redirect_to @truck, notice: 'Location was successfully removed.' }
       format.json { head :no_content }
     end
   end

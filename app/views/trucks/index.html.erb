@@ -1,6 +1,6 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Trucks</h1>
+<div class="page-header">
+  <h1>Listing All Trucks</h1>
+</div>
 
 <table class='table table-responsive'>
   <thead>
@@ -31,13 +31,13 @@
           <div class="star-rating" data-score= <%= @avg_review %> ></div>
         </td>
 
-        
-        <td><%= link_to 'View Truck', truck, class:'btn btn-default' %></td>
+
+        <td><%= link_to 'View Truck', truck, class:'btn btn-primary' %></td>
 
 
         <% if truck.owner == current_owner %>
-          <td><%= link_to 'Edit Truck Info', edit_truck_path(truck), class:'btn btn-default' %></td>
-          <td><%= link_to 'Remove Truck', truck, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-default' %></td>
+          <td><%= link_to 'Edit Truck Info', edit_truck_path(truck), class:'btn btn-primary' %></td>
+          <td><%= link_to 'Remove Truck', truck, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %></td>
         <% end %>
       </tr>
     <% end %>
@@ -49,7 +49,7 @@
 
 
 <% if !current_owner.nil? %>
-  <%= link_to ' Create a New Truck', new_truck_path, class:'btn btn-default' %>
+  <%= link_to ' Create a New Truck', new_truck_path, class:'btn btn-primary' %>
 <% end %>
 
 <script>

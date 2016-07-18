@@ -12,21 +12,21 @@ RSpec.feature "Truck Profile", type: :feature do
         fill_in 'Email', with:  'food02@gmail.com'
         fill_in 'Password', with: 'federico'
         fill_in 'Password confirmation', with: 'federico'
-        click_button 'Sign up'
+        click_button 'Sign Up'
       end
       Given 'I am trying to visit the trucks page' do
         visit '/trucks'
       end
       Then 'I can see the list of trucks' do
-        expect(page).to have_content('Listing Trucks')
+        expect(page).to have_content('Listing All Trucks')
       end
       Then 'I can create a truck profile' do
-        click_link('New Truck')
+        click_link('Create a New Truck')
         attach_file("Image", Rails.root +  "app/assets/images/facebook2.png")
         fill_in 'Name', with: 'Burger Boyz'
         fill_in 'Cuisine', with: 'American'
         fill_in 'Menu', with: 'Burgers Fries  Shakes'
-        click_button 'Create Truck'
+        click_button 'Save Truck'
       end
       And 'I can visit the truck list page' do
         click_link 'Truck List'
