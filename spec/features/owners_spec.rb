@@ -20,6 +20,9 @@ RSpec.feature "Owners", type: :feature do
       And 'I can see my email address' do
         expect(page).to have_content "food01@gmail.com"
       end
+      Then 'I can click on the \"Create a New Truck\" button' do
+        click_link 'Create a New Truck'
+      end
       Then 'I can create a new truck' do
         fill_in 'Name', with: 'Tasty Tacos'
         fill_in 'Cuisine', with: 'fish'
@@ -34,9 +37,9 @@ RSpec.feature "Owners", type: :feature do
       end
       And 'I can fill in the fields to change the email and password' do
         fill_in 'Email', with: 'asdf@asdf.com'
-        fill_in 'Password', with: 'qwerqwer'
+        fill_in 'Password (leave blank if you don\'t want to change it)', with: 'qwerqwer'
         fill_in 'Password confirmation', with: 'qwerqwer'
-        fill_in 'Current password', with: 'federico'
+        fill_in 'Current password (we need your current password to confirm your changes)', with: 'federico'
         click_button 'Update'
       end
       Then 'I can logout' do
