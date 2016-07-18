@@ -73,7 +73,7 @@ class ContributorsController < ApplicationController
   def destroy
     contributor.destroy
     respond_to do |format|
-      format.html { redirect_to contributors_url, notice: 'Contributor was successfully destroyed.' }
+      format.html { redirect_to contributors_url, notice: 'Contributor was successfully deleted.' }
       format.json { head :no_content }
     end
   end
