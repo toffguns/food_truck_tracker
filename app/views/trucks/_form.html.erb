@@ -1,10 +1,9 @@
 
-<div class='centered-div'>
+
   <%= bootstrap_form_for @truck, html: { multipart: true } do |f| %>
   <% if @truck.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@truck.errors.count, "error") %> prohibited this truck from being saved:</h2>
-
         <ul>
         <% @truck.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -12,16 +11,11 @@
         </ul>
       </div>
     <% end %>
-
     <%= f.hidden_field(:owner_id, value: current_owner.id) %>
-
-
-  <div class="form-control-file">
-    <%= f.file_field :image %>
-  </div>
-    <%= f.text_field :name  %>
-    <%= f.text_area :cuisine  %>
-    <%= f.text_area :menu  %>
+    <%= f.file_field :image, label: "Upload Food Truck Image*"%>
+    <%= f.text_field :name, label: "Food Truck Name*"  %>
+    <%= f.text_area :cuisine, label: "Cuisine*"  %>
+    <%= f.text_area :menu, label: "Menu*"  %>
+    <h6>* Indicates a required field</h6>
     <%= f.submit class: "btn btn-primary", value: "Save Truck" %>
 <% end %>
-</div>
