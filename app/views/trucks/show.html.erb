@@ -57,9 +57,9 @@
             <td><%= time_and_place.zip_code %></td>
             <% if @truck.owner == current_owner %>
               <td>
-                <%= link_to 'Edit', edit_time_and_place_path(time_and_place), class:'btn btn-primary' %>
+                <%= link_to 'Edit Location', edit_time_and_place_path(time_and_place), class:'btn btn-primary' %>
               </td>
-              <td><%= link_to 'Remove', time_and_place, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %></td>
+              <td><%= link_to 'Remove Location', time_and_place, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %></td>
             <% end %>
           </tr>
         <% end %>
@@ -82,9 +82,13 @@
   <%= render 'reviews/form' %>
   <div class="fb-comments" expr:href='data:post.url' data-numposts="5"></div>
 <% else %>
-  <a href="/login"><h3>Write a Review or Comment</h3></a>
+  <% if !owner_signed_in? %>
+    <a href="/login"><h3>Log in to leave a review</h3></a>
+    <div class="fb-comments" expr:href='data:post.url' data-numposts="5"></div>
+  <% else %>
+    <div class="fb-comments" expr:href='data:post.url' data-numposts="5"></div>
+  <% end %>
 <% end %>
-
 
 
 <script>
