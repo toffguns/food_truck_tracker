@@ -36,5 +36,6 @@
   </tbody>
 </table>
 
-<h1 class="pg-title">Add a New Truck</h1>
-<%= render '/trucks/form' %>
+<% if current_owner.id == @owner.id %>
+  <%= link_to ' Create a New Truck', new_truck_path, class:'btn btn-primary' %>
+<% end %>
