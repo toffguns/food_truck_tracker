@@ -33,7 +33,6 @@ RSpec.feature "Truck Profile", type: :feature do
       end
       And 'I can click on the truck name to see the truck details' do
         click_link 'Burger Boyz'
-        expect(page).to have_content 'Write a Review or Comment'
       end
     end
   end
