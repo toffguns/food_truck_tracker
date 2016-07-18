@@ -1,39 +1,15 @@
 
-<div class="container">
-  <div class="col-sm-3"></div>
-
-  <div class="col-sm-5" id="sign-up-container">
-    <h1 class="pg-title">Sign Up As a Food Truck Owner</h1>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<div class="login-page">
+  <div class="form">
+    <img src="https://s31.postimg.org/cn4x8qaez/formlogo.png">
+    <h2>Have a Food Truck? Sign Up and Get on the Road!</h2>
+    <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
-
-      <div class="form-contents">
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, class: "form-field" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "off", class: "form-field" %>
-        </div>
-
-        <div class="field">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-field" %>
-        </div>
-
-        <div class="field">
-          <div class="actions">
-            <%= f.submit "Sign Up" %>
-          </div>
-        </div>
-      </div>
+        <%= f.email_field :email, autofocus: true %>
+        <%= f.password_field :password, autocomplete: "off" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        <%= f.submit "Sign Up"%>
     <% end %>
-
 
   </div>
 </div>

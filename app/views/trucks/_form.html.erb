@@ -1,8 +1,9 @@
 
-  <%= form_for @truck, html: { multipart: true } do |f| %>
-    <% if @truck.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@truck.errors.count, "error") %> prohibited this truck from being saved:</h2>
+<div class='centered-div'>
+  <%= bootstrap_form_for @truck, html: { multipart: true } do |f| %>
+  <% if @truck.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@truck.errors.count, "error") %> prohibited this truck from being saved:</h2>
 
         <ul>
         <% @truck.errors.full_messages.each do |message| %>
@@ -14,24 +15,13 @@
 
     <%= f.hidden_field(:owner_id, value: current_owner.id) %>
 
-    <div class="field form-control-file">
-      <%= f.label :image %><br>
-      <%= f.file_field :image, class: "form-field" %>
-    </div>
 
-    <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_field :name, class: "form-field"  %>
-    </div>
-    <div class="field" >
-      <%= f.label :cuisine %><br>
-      <%= f.text_area :cuisine, class: "form-field"  %>
-    </div>
-    <div class="field" >
-      <%= f.label :menu %><br>
-      <%= f.text_area :menu, class: "form-field"  %>
-    </div>
-    <div class="actions field">
-      <%= f.submit class: "btn btn-primary", value: "Save Truck" %>
-    </div>
-  <% end %>
+  <div class="form-control-file">
+    <%= f.file_field :image %>
+  </div>
+    <%= f.text_field :name  %>
+    <%= f.text_area :cuisine  %>
+    <%= f.text_area :menu  %>
+    <%= f.submit class: "btn btn-primary", value: "Save Truck" %>
+<% end %>
+</div>
