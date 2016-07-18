@@ -5,7 +5,7 @@
 <%= bootstrap_form_for(@time_and_place) do |f| %>
   <% if @time_and_place.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@time_and_place.errors.count, "error") %> prohibited this time_and_place from being saved:</h2>
+      <h2><%= pluralize(@time_and_place.errors.count, "error") %> prohibited this location from being saved:</h2>
 
       <ul>
       <% @time_and_place.errors.full_messages.each do |message| %>
@@ -14,14 +14,15 @@
       </ul>
     </div>
   <% end %>
-    <%= f.datetime_select :start_time %>
-    <%= f.datetime_select :end_time %>
-    <%= f.text_field :street_address %>
-    <%= f.text_field :city %>
-    <%= f.text_field :state %>
-    <%= f.text_field :zip_code %>
+    <%= f.datetime_select :start_time, label: "Start time*" %>
+    <%= f.datetime_select :end_time, label: "End time*" %>
+    <%= f.text_field :street_address, label: "Street address*" %>
+    <%= f.text_field :city, label: "City*" %>
+    <%= f.text_field :state, label: "State*" %>
+    <%= f.text_field :zip_code, label: "Zip code*" %>
     <input type="hidden" name="time_and_place[truck_id]" value="<%= @time_and_place.truck.id %>"/>
     <%= f.submit value: "Save Location" %>
+    <h6>* Indicates a required field</h6>
 <% end %>
 </div>
 </div>
