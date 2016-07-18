@@ -6,6 +6,7 @@ class TrucksController < ApplicationController
   # GET /trucks.json
   def index
     @trucks = Truck.all
+    @time_and_places = TimeAndPlace.where("end_time > ?", DateTime.now).where("start_time < ?", DateTime.now)
   end
 
   # GET /trucks/1
