@@ -7,7 +7,6 @@ function searchOrCenterMap() {
 };
 
 function loadAndCreateGmapRecenter() {
-  alert("hillo");
   // Format data from the address search so that it can be inserted into
   // the https request to the google maps api
   var formatted_input = $("#search_field").val().split(" ").join("+");
@@ -64,7 +63,6 @@ function createGmapRecenter(data) {
 };
 
 function loadAndCreateGmapSearch() {
-  alert("hello");
   // Only load map data if we have a map on the page
   if ($('#map').length > 0) {
     $.ajax({
@@ -103,5 +101,5 @@ $("document").ready(function() {
     searchOrCenterMap);
     $('.message a').click(function(){
      $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-  });  
+  });
 });
