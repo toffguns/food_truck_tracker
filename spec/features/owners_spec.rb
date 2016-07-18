@@ -11,8 +11,8 @@ RSpec.feature "Owners", type: :feature do
       end
       And 'I fill in email and password fields' do
         fill_in 'Email', with: 'food01@gmail.com'
-        fill_in 'Password', with: 'federico'
-        fill_in 'Password confirmation', with: 'federico'
+        fill_in 'Password (6 characters minimum)*', with: 'federico'
+        fill_in 'Password Confirmation*', with: 'federico'
       end
       And 'I submit the information' do
          click_button 'Sign Up'

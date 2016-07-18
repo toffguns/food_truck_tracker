@@ -14,8 +14,8 @@ RSpec.feature 'Ownerrestrictions', type: :feature do
       end
       When 'I fill in email and password fields' do
         fill_in 'Email', with: 'food08@gmail.com'
-        fill_in 'Password', with: 'federico'
-        fill_in 'Password confirmation', with: 'federico'
+        fill_in 'Password (6 characters minimum)*', with: 'federico'
+        fill_in 'Password Confirmation*', with: 'federico'
       end
       And 'I submit the information' do
          click_button 'Sign Up'
@@ -34,8 +34,8 @@ RSpec.feature 'Ownerrestrictions', type: :feature do
       end
       When 'I fill in email and password fields' do
         fill_in 'Email', with: 'food@gmail.com'
-        fill_in 'Password', with: 'federico'
-        fill_in 'Password confirmation', with: 'federico'
+        fill_in 'Password (6 characters minimum)*', with: 'federico'
+        fill_in 'Password Confirmation*', with: 'federico'
       end
       And 'I submit the information' do
          click_button 'Sign Up'
