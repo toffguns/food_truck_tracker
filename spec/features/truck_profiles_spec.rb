@@ -10,8 +10,8 @@ RSpec.feature "Truck Profile", type: :feature do
       When 'I fill in email and password fields' do
         click_link 'Register'
         fill_in 'Email', with:  'food02@gmail.com'
-        fill_in 'Password', with: 'federico'
-        fill_in 'Password confirmation', with: 'federico'
+        fill_in 'Password (6 characters minimum)*', with: 'federico'
+        fill_in 'Password Confirmation*', with: 'federico'
         click_button 'Sign Up'
       end
       Given 'I am trying to visit the trucks page' do
@@ -33,7 +33,6 @@ RSpec.feature "Truck Profile", type: :feature do
       end
       And 'I can click on the truck name to see the truck details' do
         click_link 'Burger Boyz'
-        expect(page).to have_content 'Write a Review or Comment'
       end
     end
   end

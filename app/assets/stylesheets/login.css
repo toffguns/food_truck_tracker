@@ -33,7 +33,6 @@
 }
 
 .form1 input {
-  font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
   width: 100%;
@@ -44,10 +43,8 @@
   font-size: 14px;
 }
 .form1 button {
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
   outline: 0;
-  background: #4CAF50;
+  background: #0044cc;
   width: 100%;
   border: 0;
   padding: 15px;
@@ -58,7 +55,7 @@
   cursor: pointer;
 }
 .form1 button:hover,.form button:active,.form button:focus {
-  background: #43A047;
+  background: #5187F2;
 }
 .form1 .message {
   margin: 15px 0 0;
@@ -113,14 +110,11 @@ body.devise\/sessions {
   background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #f85032), color-stop(50, #F16F5C), color-stop(100, #e73827));
   background-image: -webkit-linear-gradient(left, #f85032 0%, #F16F5C 50%, #e73827 100%);
   background-image: linear-gradient(to right, #f85032 0%, #F16F5C 50%, #e73827 100%);
-  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 input[type="submit"] {
-  font-family: "Roboto", sans-serif;
-  text-transform: uppercase;
   outline: 0;
   background: #e73827;
   width: 100%;
@@ -134,5 +128,5 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover,input[type="submit"]:active,input[type="submit"]:focus {
-  background: #F16F5C;
+  background: #5187F2;
 }
