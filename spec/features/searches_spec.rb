@@ -7,8 +7,8 @@ RSpec.feature "Searches", type: :feature do
         visit '/'
         click_link 'Register'
         fill_in 'Email', with: "jordan@jordan.com"
-        fill_in 'Password', with: 'fishtacos'
-        fill_in 'Password confirmation', with: 'fishtacos'
+        fill_in 'Password (6 characters minimum)*', with: 'fishtacos'
+        fill_in 'Password Confirmation*', with: 'fishtacos'
         click_button 'Sign Up'
       end
       Then 'I can click on the list of food trucks link' do
