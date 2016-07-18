@@ -101,4 +101,7 @@ function createGmapSearch(data) {
 $("document").ready(function() {
   $('#search_button').on('click',
     searchOrCenterMap);
+    $('.message a').click(function(){
+     $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+  });  
 });

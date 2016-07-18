@@ -9,7 +9,7 @@ RSpec.feature "TimeAndPlace", type: :feature do
         fill_in 'Email', with: 'food02@gmail.com'
         fill_in 'Password', with: 'federico'
         fill_in 'Password confirmation', with: 'federico'
-        click_button 'Sign up'
+        click_button 'Sign Up'
       end
       Then 'I create a new truck' do
         click_link 'Truck List'
@@ -18,13 +18,13 @@ RSpec.feature "TimeAndPlace", type: :feature do
         fill_in 'Name', with: 'Al\'s possum truck'
         fill_in 'Cuisine', with: 'backwood bbq'
         fill_in 'Menu', with: 'possum squirrel racoon'
-        click_button 'Create Truck'
+        click_button 'Save Truck'
       end
       And 'I go to my profile page' do
         click_link 'Profile'
       end
       Then 'I can click on the new time and place link' do
-        click_link 'Create a New Location'
+        click_link 'Add a Location'
       end
       And 'I create a new time and place for my truck' do
         select '2018', from: 'time_and_place_start_time_1i'
@@ -33,7 +33,7 @@ RSpec.feature "TimeAndPlace", type: :feature do
         fill_in 'City', with: "San Diego"
         fill_in 'Zip code', with: "92104"
         fill_in 'State', with: "CA"
-        click_button 'Create Time and place'
+        click_button 'Save Location'
       end
       Then 'I will be directed to my trucks profile page' do
         expect(page).to have_content 'Al\'s possum truck'
@@ -48,7 +48,7 @@ RSpec.feature "TimeAndPlace", type: :feature do
         fill_in 'City', with: "San Diego"
         fill_in 'Zip code', with: "92105"
         fill_in 'State', with: "CA"
-        click_button 'Update Time and place'
+        click_button 'Save Location'
       end
       Then 'I can see the changes made' do
         expect(page).to have_content '92105'
@@ -57,7 +57,7 @@ RSpec.feature "TimeAndPlace", type: :feature do
         click_link 'Profile'
       end
       Then 'I can click on the new time and place link' do
-        click_link 'Create a New Location'
+        click_link 'Add a Location'
       end
       And 'I create a new time and place for my truck' do
         select '2014', from: 'time_and_place_start_time_1i'
@@ -66,7 +66,7 @@ RSpec.feature "TimeAndPlace", type: :feature do
         fill_in 'City', with: "San Diego"
         fill_in 'Zip code', with: "92139"
         fill_in 'State', with: "CA"
-        click_button 'Create Time and place'
+        click_button 'Save Location'
         expect(page).to have_content '3803 Ray St.'
         expect(page).to_not have_content '3046 Vesuvia Way'
       end

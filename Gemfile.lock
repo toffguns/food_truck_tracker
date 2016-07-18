@@ -36,7 +36,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    acts_as_commentable (4.0.2)
     addressable (2.4.0)
     arel (6.0.3)
     autoprefixer-rails (6.3.7)
@@ -49,6 +48,7 @@ GEM
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap_form (2.4.0)
     builder (3.2.2)
     byebug (9.0.5)
     capybara (2.7.1)
@@ -242,9 +242,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_commentable
   bootstrap-generators
   bootstrap-sass
+  bootstrap_form
   byebug
   capybara
   coffee-rails (~> 4.1.0)
@@ -270,4 +270,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.12.0
+   1.12.5

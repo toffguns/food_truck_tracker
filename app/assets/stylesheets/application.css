@@ -9,7 +9,8 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
+ 
+ *= require rails_bootstrap_forms
  *= require_tree .
  *= require_self
  */
@@ -32,6 +33,10 @@
        }
  }
 
+body {
+  background-color: #FCF6CF;
+}
+
 #map-container {
   display: flex;
   justify-content: center;
@@ -41,18 +46,23 @@
 
 #sign-up-container {
   text-align: center;
-  border-style: solid;
-  border-width: 1px;
+  margin-top: 80px;
+  padding-bottom: 30px;
+}
+
+#facebook-container {
+  text-align: center;
   margin-top: 80px;
   padding-bottom: 30px;
 }
 
 #log-in-container {
   text-align: center;
-  border-style: solid;
-  border-width: 1px;
   margin-top: 80px;
   padding-bottom: 30px;
+  border-left-color: grey;
+  border-left-size: 1px;
+  border-left-style: solid;
 }
 
 #select-container {
@@ -71,4 +81,18 @@ table {
 
 #profile-link {
   float: right;
+}
+
+.form-field {
+  width: 75%;
+}
+
+.form-contents {
+  text-align: left;
+  padding-left: 20px;
+
+}
+
+.field {
+  margin: 15px;
 }

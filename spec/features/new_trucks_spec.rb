@@ -9,7 +9,7 @@ RSpec.feature "NewTrucks", type: :feature do
         fill_in 'Email', with: "jordan@jordan.com"
         fill_in 'Password', with: 'fishtacos'
         fill_in 'Password confirmation', with: 'fishtacos'
-        click_button 'Sign up'
+        click_button 'Sign Up'
       end
       Then 'I can click on the list of food trucks link' do
         click_link 'Truck List'
@@ -22,7 +22,7 @@ RSpec.feature "NewTrucks", type: :feature do
         fill_in 'Name', with: 'shrimp blimp'
         fill_in 'Cuisine', with: 'cajun'
         fill_in 'Menu', with: 'Gumbo'
-        click_button 'Create Truck'
+        click_button 'Save Truck'
       end
       And 'I will see a confirmation message' do
         expect(page).to have_content "Truck was successfully created"

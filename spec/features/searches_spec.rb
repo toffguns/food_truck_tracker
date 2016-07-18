@@ -9,7 +9,7 @@ RSpec.feature "Searches", type: :feature do
         fill_in 'Email', with: "jordan@jordan.com"
         fill_in 'Password', with: 'fishtacos'
         fill_in 'Password confirmation', with: 'fishtacos'
-        click_button 'Sign up'
+        click_button 'Sign Up'
       end
       Then 'I can click on the list of food trucks link' do
         click_link 'Truck List'
@@ -22,7 +22,7 @@ RSpec.feature "Searches", type: :feature do
         fill_in 'Name', with: 'shrimp blimp'
         fill_in 'Cuisine', with: 'cajun'
         fill_in 'Menu', with: 'Gumbo'
-        click_button 'Create Truck'
+        click_button 'Save Truck'
       end
       And 'I will see a confirmation message' do
         expect(page).to have_content "Truck was successfully created"
@@ -38,21 +38,21 @@ RSpec.feature "Searches", type: :feature do
         fill_in 'City', with: 'San Diego'
         fill_in 'Zip code', with: '92111'
         fill_in 'State', with: 'CA'
-        click_button 'Create Time and place'
+        click_button 'Save Location'
         visit '/'
       end
       Then 'I can click on the list of food trucks link' do
         click_link 'Truck List'
       end
       And 'I can click on the New truck link' do
-        click_link 'New Truck'
+        click_link 'Create a New Truck'
       end
       And 'I can fill in the fields and click on the new truck button' do
         attach_file("Image", Rails.root + "app/assets/images/facebook2.png")
         fill_in 'Name', with: 'Rodney Riguez'
         fill_in 'Cuisine', with: 'fish'
         fill_in 'Menu', with: 'Rumbo'
-        click_button 'Create Truck'
+        click_button 'Save Truck'
       end
       And 'I will see a confirmation message' do
         expect(page).to have_content "Truck was successfully created"
@@ -67,7 +67,7 @@ RSpec.feature "Searches", type: :feature do
         fill_in 'City', with: "San Diego"
         fill_in 'Zip code', with: "92104"
         fill_in 'State', with: "CA"
-        click_button 'Create Time and place'
+        click_button 'Save Location'
       end
       Given 'that I am on the landing page' do
         visit '/'
