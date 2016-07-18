@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1>Listing All Trucks</h1>
+  <h1>Food Trucks Out Now</h1>
 </div>
 
 <table class='table table-responsive'>
@@ -10,49 +10,47 @@
       <th>Cuisine</th>
       <th>Menu</th>
       <th>Rating</th>
-      <th colspan="3"></th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th>Street address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip code</th>
+
     </tr>
   </thead>
 
   <tbody>
-    <% @trucks.each do |truck| %>
-      <tr>
-        <td><%= link_to image_tag(truck.image.url(:small)), truck %></td>
-        <td><%= link_to truck.name, truck %></td>
-        <td><%= truck.cuisine %></td>
-        <td><%= truck.menu %></td>
+    <% if !@time_and_places.nil? %>
+      <% @time_and_places.each do |time_and_place| %>
+        <tr>
+          <td><%= link_to image_tag(time_and_place.truck.image.url(:small)), time_and_place.truck %></td>
+          <td><%= link_to time_and_place.truck.name, time_and_place.truck %></td>
+          <td><%= time_and_place.truck.cuisine %></td>
+          <td><%= time_and_place.truck.menu %></td>
 
-        <td><% @reviews = Review.where(truck_id: truck.id) %>
-          <% if @reviews.blank? %>
-          <% @avg_review = 0 %>
-          <% else %>
-          <% @avg_review = @reviews.average(:rating).round(2) %>
-          <% end %>
-          <div class="star-rating" data-score= <%= @avg_review %> ></div>
-        </td>
+          <td><% @reviews = Review.where(truck_id: time_and_place.truck.id) %>
+            <% if @reviews.blank? %>
+              <% @avg_review = 0 %>
+            <% else %>
+              <% @avg_review = @reviews.average(:rating).round(2) %>
+            <% end %>
+            <div class="star-rating" data-score= <%= @avg_review %> ></div>
+          </td>
 
-        <% if contributor_signed_in? %>
-          <td><%= link_to 'Leave a Review', truck, class:'btn btn-primary' %></td>
-        <% end %>
-
-
-        <% if truck.owner == current_owner %>
-          <td><%= link_to 'Edit Truck Info', edit_truck_path(truck), class:'btn btn-primary' %></td>
-          <td><%= link_to 'Add a Location', new_time_and_place_path() + "?truck_id=" + truck.id.to_s, class: "btn btn-primary" %></td>
-          <td><%= link_to 'Remove Truck', truck, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %></td>
-        <% end %>
-      </tr>
+          <td><%= time_and_place.start_time %></td>
+          <td><%= time_and_place.end_time %></td>
+          <td><%= time_and_place.street_address %></td>
+          <td><%= time_and_place.city %></td>
+          <td><%= time_and_place.state %></td>
+          <td><%= time_and_place.zip_code %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-
-
-<% if !current_owner.nil? %>
-  <%= link_to ' Create a New Truck', new_truck_path, class:'btn btn-primary' %>
-<% end %>
 
 <script>
     $('.star-rating').raty({
