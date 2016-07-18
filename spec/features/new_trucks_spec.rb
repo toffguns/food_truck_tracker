@@ -12,10 +12,10 @@ RSpec.feature "NewTrucks", type: :feature do
         click_button 'Sign Up'
       end
       Then 'I can click on the list of food trucks link' do
-        click_link 'Truck List'
+        click_link 'Profile'
       end
       And 'I can click on the New truck link' do
-        click_link 'New Truck'
+        click_link 'Create a New Truck'
       end
       And 'I can fill in the fields and click on the new truck button' do
         attach_file("Image", Rails.root + "app/assets/images/facebook2.png")

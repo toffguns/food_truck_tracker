@@ -12,8 +12,8 @@ RSpec.feature "TimeAndPlace", type: :feature do
         click_button 'Sign Up'
       end
       Then 'I create a new truck' do
-        click_link 'Truck List'
-        click_link 'New Truck'
+        click_link 'Profile'
+        click_link 'Create a New Truck'
         attach_file("Image", Rails.root + "app/assets/images/facebook2.png")
         fill_in 'Name', with: 'Al\'s possum truck'
         fill_in 'Cuisine', with: 'backwood bbq'
