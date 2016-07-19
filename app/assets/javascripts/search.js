@@ -22,7 +22,7 @@ function loadAndCreateGmapRecenter() {
         getDatabaseValues(data);
       },
       error: function(jqXHR, textStatus, errorThrown) {
-        alert("Getting map data failed: " + errorThrown);
+        alert("Your Search Cannot Be Blank " + errorThrown);
       }
     });
   }
