@@ -29,7 +29,7 @@
           <td><%= time_and_place.truck.cuisine %></td>
           <td><%= time_and_place.truck.menu %></td>
 
-          <td><% @reviews = Review.where(truck_id: time_and_place.truck.id) %>
+          <td span="1" style="width: 15%"><% @reviews = Review.where(truck_id: time_and_place.truck.id) %>
             <% if @reviews.blank? %>
               <% @avg_review = 0 %>
             <% else %>
