@@ -2,13 +2,17 @@ class TimeAndPlacesController < ApplicationController
   before_action :set_time_and_place, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_owner!, except: [:show, :index]
 
-
-  # GET /time_and_places
-  # GET /time_and_places.json
-  def index
-    @time_and_places = TimeAndPlace.all
+  def validate_owner!
+    authenticate_owner!
+    # redirect_to '/' unless current_owner.id.to_s == params[:id]
+    if current_owner.id.to_s != params[:id] || params[:id] == nil
+      redirect_to '/'
+    end
   end
 
+  def index
+    redirect_to '/'
+  end
   # GET /time_and_places/1
   # GET /time_and_places/1.json
   def show
