@@ -21,7 +21,11 @@
 
     <p>
       <strong>Menu:</strong>
-      <%= @truck.menu %>
+      <% @truck.menu.split(",").each do |item| %>
+      <ul>
+        <li> <%= item %> </li>
+      </ul>
+      <% end %>
     </p>
     <div class="star-rating" data-score= <%= @avg_review %> ></div>
     <em><%= "#{@reviews.length} reviews" %></em>
