@@ -25,14 +25,14 @@
         <td><%= link_to truck.name, truck %></td>
         <td><%= truck.cuisine %></td>
         <td><%= truck.menu %></td>
-        <td><% @reviews = Review.where(truck_id: truck.id) %>
+        <td col span="1" style="width: 15%"><% @reviews = Review.where(truck_id: truck.id) %>
             <% if @reviews.blank? %>
               <% @avg_review = 0 %>
             <% else %>
               <% @avg_review = @reviews.average(:rating).round(2) %>
             <% end %>
           <div class="star-rating" data-score= <%= @avg_review %> ></div>
-        </td>      
+        </td>
         <% if truck.owner == current_owner %>
           <td><%= link_to 'Edit Truck Info', edit_truck_path(truck), class: " btn btn-primary" %></td>
           <td><%= link_to 'Add a Location', new_time_and_place_path() + "?truck_id=" + truck.id.to_s, class: "btn btn-primary" %></td>
