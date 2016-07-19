@@ -32,7 +32,7 @@ RSpec.feature "Owners", type: :feature do
         click_link 'Create a New Truck'
       end
       Then 'I can create a new truck' do
-        attach_file("Image", Rails.root + "app/assets/images/facebook2.png")
+        attach_file("Image", Rails.root + "app/assets/images/facebooklogin.png")
         fill_in 'Name', with: 'shrimp blimp'
         fill_in 'Cuisine', with: 'fish'
         fill_in 'Menu', with: 'barbacoa'

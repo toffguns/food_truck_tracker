@@ -18,7 +18,7 @@ RSpec.feature "Searches", type: :feature do
         click_link 'Create a New Truck'
       end
       And 'I can fill in the fields and click on the new truck button' do
-        attach_file("Image", Rails.root + "app/assets/images/facebook2.png")
+        attach_file("Image", Rails.root + "app/assets/images/facebooklogin.png")
         fill_in 'Name', with: 'shrimp blimp'
         fill_in 'Cuisine', with: 'cajun'
         fill_in 'Menu', with: 'Gumbo'
@@ -48,7 +48,7 @@ RSpec.feature "Searches", type: :feature do
         click_link 'Create a New Truck'
       end
       And 'I can fill in the fields and click on the new truck button' do
-        attach_file("Image", Rails.root + "app/assets/images/facebook2.png")
+        attach_file("Image", Rails.root + "app/assets/images/facebooklogin.png")
         fill_in 'Name', with: 'Rodney Riguez'
         fill_in 'Cuisine', with: 'fish'
         fill_in 'Menu', with: 'Rumbo'
