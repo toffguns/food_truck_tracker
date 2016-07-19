@@ -77,10 +77,12 @@
       <% if @truck.time_and_places.nil? || @time_and_places_sorted_by_time.last.end_time.past? %>
         <td colspan="7"><em>There are currently no locations for this truck.</em></td>
       <% end %>
-
     </tbody>
   </table>
+  <%= link_to 'Add a Location', new_time_and_place_path() + "?truck_id=" + @truck.id.to_s, class: "btn btn-primary" %>
 </div>
+
+
 
 <% if contributor_signed_in? %>
   <%= render 'reviews/form' %>
