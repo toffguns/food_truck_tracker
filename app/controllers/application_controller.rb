@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource_or_scope)
     # current_owner
     # current_contributor
+      if !session[:contributor_return_to].nil?
     if (session[:contributor_return_to] == "/landing_page/map_location" && contributor_signed_in?) ||
         session[:contributor_return_to][0,36] == "/landing_page/get_markers_by_address" ||
         session[:contributor_return_to][0,20] == "/landing_page/search"
@@ -17,6 +18,7 @@ class ApplicationController < ActionController::Base
       session[:contributor_return_to] || root_path
     end
   end
+end
 
 #   private
 #   # override the devise helper to store the current location so we can
