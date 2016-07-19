@@ -132,3 +132,7 @@ table {
 .field {
   margin: 15px;
 }
+#pw-email-field {
+  width: 50%;
+  justify-content: center;
+}
