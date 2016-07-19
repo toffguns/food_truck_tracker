@@ -40,6 +40,10 @@ html {
 footer {
   margin-top: 45px;
   padding-top: 5px;
+  position: absolute;
+  bottom: 0;
+  width: 60%;
+
   // border-top: 0.5px solid $gray-medium-light;
   color: black;
   a {
@@ -50,7 +54,7 @@ footer {
     float: left;
   }
   ul {
-    float: right;
+    float: left;
     list-style: none;
     li {
       font-weight: bold;
@@ -97,6 +101,8 @@ a {
   padding: 10px;
   color: white;
 }
+
+
 
 .navbar .nav > li > a {
     color:  #E9E9E9;
