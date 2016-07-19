@@ -21,6 +21,7 @@ class OwnersController < ApplicationController
   # GET /owners.json
   def index
     @owners = Owner.all
+    1/0
   end
 
   # GET /owners/1
