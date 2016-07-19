@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get '/funfactor50' => 'contact_us#show'
+
   root "landing_page#index"
 
   devise_for :contributors, :controllers => { :omniauth_callbacks => "contributors/omniauth_callbacks" }
