@@ -5,7 +5,7 @@ RSpec.feature "TimeAndPlace", type: :feature do
     Steps 'creating a new TimeAndPlace for a food truck' do
       Given 'I register as an owner' do
         visit '/'
-        click_link 'Register'
+        click_link 'Sign Up'
         fill_in 'Email', with: 'food02@gmail.com'
         fill_in 'Password (6 characters minimum)*', with: 'federico'
         fill_in 'Password Confirmation*', with: 'federico'
