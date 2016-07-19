@@ -23,7 +23,7 @@ RSpec.feature "Truck Profile", type: :feature do
       Then 'I can create a truck profile' do
         click_link 'Profile'
         click_link('Create a New Truck')
-        attach_file("Image", Rails.root +  "app/assets/images/facebook2.png")
+        attach_file("Image", Rails.root +  "app/assets/images/facebooklogin.png")
         fill_in 'Name', with: 'Burger Boyz'
         fill_in 'Cuisine', with: 'American'
         fill_in 'Menu', with: 'Burgers Fries  Shakes'
