@@ -46,9 +46,9 @@ RSpec.feature "Owners", type: :feature do
       end
       And 'I can fill in the fields to change the email and password' do
         fill_in 'Email', with: "change" + @email
-        fill_in 'Password (leave blank if you don\'t want to change it)', with: 'qwerqwer'
+        fill_in 'Password', with: 'qwerqwer'
         fill_in 'Password confirmation', with: 'qwerqwer'
-        fill_in 'Current password (we need your current password to confirm your changes)', with: 'federico'
+        fill_in 'Current password', with: 'federico'
         click_button 'Update'
       end
       Then 'I get confirmation' do
