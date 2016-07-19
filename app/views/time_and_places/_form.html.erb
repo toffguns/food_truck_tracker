@@ -15,7 +15,7 @@
     </div>
   <% end %>
     <%= f.datetime_select :start_time, label: "Start time*" %>
-    <%= f.datetime_select :end_time, label: "End time*" %>
+    <%= f.datetime_select :end_time, default: 2.hours.from_now, label: "End Time*"%>
     <%= f.text_field :street_address, label: "Street address*" %>
     <%= f.text_field :city, label: "City*" %>
     <%= f.text_field :state, label: "State*" %>
