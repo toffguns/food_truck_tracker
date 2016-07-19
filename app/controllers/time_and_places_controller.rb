@@ -2,14 +2,6 @@ class TimeAndPlacesController < ApplicationController
   before_action :set_time_and_place, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_owner!, except: [:show, :index]
 
-  def validate_owner!
-    authenticate_owner!
-    # redirect_to '/' unless current_owner.id.to_s == params[:id]
-    if current_owner.id.to_s != params[:id] || params[:id] == nil
-      redirect_to '/'
-    end
-  end
-
   def index
     redirect_to '/'
   end
