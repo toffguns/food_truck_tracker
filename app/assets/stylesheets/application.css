@@ -72,6 +72,12 @@ body {
   flex-direction: column;
 }
 
+#map {
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+}
+
 #sign-up-container {
   text-align: center;
   margin-top: 80px;
