@@ -17,9 +17,9 @@
     <%= f.datetime_select :start_time, label: "Start time*" %>
     <%= f.datetime_select :end_time, default: 2.hours.from_now, label: "End time*"%>
     <%= f.text_field :street_address, label: "Street address*" %>
+    <%= f.text_field :zip_code, label: "Zip code*" %>
     <%= f.text_field :city, label: "City*" %>
     <%= f.text_field :state, label: "State*" %>
-    <%= f.text_field :zip_code, label: "Zip code*" %>
     <input type="hidden" name="time_and_place[truck_id]" value="<%= @time_and_place.truck.id %>"/>
     <%= f.submit value: "Save Location" %>
     <h6>* Indicates a required field</h6>

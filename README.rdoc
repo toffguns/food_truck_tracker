@@ -1,28 +1,21 @@
-== README
+== FOOD TRUCK TRACKER
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Purpose:
+We connect people with food trucks by making the whereabouts (time & place) of food trucks readily available.
 
-Things you may want to cover:
+Roles:
+* Foodie: Anonymous user interested in great food truck food.
+* Contributor: Can submit reviews/recommendations on food trucks. Logs in through Facebook.
+* Food truck owner: Can update location, time, menu, and type of cuisine.
 
-* Ruby version
+Technolgies Used:
+* Ruby on Rails
+* PostgresQl
+* Ruby
+* HTML
+* CSS
+* Javascript
+* jQuery
+* Google Maps API
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+This was a two week project at Learn Academy in San Diego. Made with love by the Fun Factor 50 team. Let us know what you think!

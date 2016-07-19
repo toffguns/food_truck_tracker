@@ -7,8 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <title>Food Truck Tracker</title>
-  <link rel="icon" type="image/png" href="/favicon.png">
-
+  <link rel="icon" type="image/png" href="/assets/truck.png">
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
     <%= javascript_include_tag "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js", "https://oss.maxcdn.com/respond/1.4.2/respond.min.js" %>
@@ -47,11 +46,12 @@
         </button>
         <a href="/" class="navbar-left navlogo1"><img src="/assets/navlogo.png"></a>
       </div>
+
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li><a href="/trucks">Truck List</a></li>
           <% if show_register %>
-            <li><a href="/owners/sign_up">Register</a></li>
+            <li><a href="/owners/sign_up">Sign Up</a></li>
           <% end %>
         </ul>
           <ul id="profile-link" class="nav navbar-nav">

@@ -96,6 +96,10 @@ body.devise\/registrations {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.devise\/registrations > #edit-profile{
+  background-color: #ffffff;
+}
+
 input[type="submit"] {
   outline: 0;
   background: #428bca;
