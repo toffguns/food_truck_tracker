@@ -77,6 +77,7 @@ function loadAndCreateGmapSearch() {
         alert("Getting map data failed: " + errorThrown);
       }
     });
+
   }
 };
 function createGmapSearch(data) {
