@@ -5,7 +5,7 @@ RSpec.feature "Searches", type: :feature do
     Steps 'for performing a search' do
       Given 'that I register as an owner' do
         visit '/'
-        click_link 'Register'
+        click_link 'Sign Up'
         fill_in 'Email', with: "jordan@jordan.com"
         fill_in 'Password (6 characters minimum)*', with: 'fishtacos'
         fill_in 'Password Confirmation*', with: 'fishtacos'

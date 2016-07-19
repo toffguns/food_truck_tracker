@@ -11,7 +11,7 @@ RSpec.feature "Owners", type: :feature do
         visit '/'
       end
       Then 'I can click on the sign up button' do
-        click_link 'Register'
+        click_link 'Sign Up'
       end
       And 'I fill in email and password fields' do
         @email = Time.now.hour.to_s + Time.now.min.to_s + Time.now.sec.to_s + 'food01@gmail.com'
